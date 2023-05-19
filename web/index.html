@@ -23,6 +23,37 @@
         <div id="unity-build-title">Game of Life</div>
       </div>
     </div>
+    <style>
+      .text-block-left {
+        position: fixed;
+        top: 40%;
+        left: 3%;
+        transform: translate(0, -50%);
+        padding: 10px;
+        background-color: #ffffff;
+        max-width: 200px; /* Set the desired maximum width */
+        white-space: normal; /* Prevent text wrapping */
+      }
+      .text-block-right {
+        position: fixed;
+        top: 40%;
+        right: 3%;
+        transform: translate(0, -50%);
+        padding: 10px;
+        background-color: #ffffff;
+        max-width: 200px; /* Set the desired maximum width */
+        white-space: normal; /* Prevent text wrapping */
+      }
+    </style>
+    <div class="text-block-left">Welcome to Conway's Game of life. <strong>Press the spacebar for pause/play.</strong><br>This simulation follows four basic rules:<br><br>1) Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+      <br><br>2) Any live cell with two or three live neighbours lives on to the next generation.
+      <br><br>3) Any live cell with more than three live neighbours dies, as if by overpopulation.
+      <br><br>4) Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction. For more information on the game, click <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">here</a>.</div>
+      <div class="text-block-right">I created this visualization tool to discover how code from scripts is transformed into an easy to understand format for anyone to use. 
+        <br><br> In my Intro to Computer Systems class at Swarthmore College, I created a Conway's Game of Life simulation, but it was only implemented in the terminal with rudimentary animations.
+        I started this project to learn how to create a product that can not only be appreciated by those who know how to code, but also widely used by the masses.
+        <br><br> It's not a very fun game but feel free to explore a couple interesting configurations in the "Discover the Game of Life" section.
+      </div>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -58,9 +89,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/web.data.br",
-        frameworkUrl: buildUrl + "/web.framework.js.br",
-        codeUrl: buildUrl + "/web.wasm.br",
+        dataUrl: buildUrl + "/web.data",
+        frameworkUrl: buildUrl + "/web.framework.js",
+        codeUrl: buildUrl + "/web.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Game of Life",
