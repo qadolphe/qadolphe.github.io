@@ -2676,6 +2676,22 @@ input, select, textarea {
 			transform: scale(1.05);
 		}
 
+/* Video */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    /* Set a fixed aspect ratio, adjust as needed */
+    padding-top: 56.25%; /* 16:9 aspect ratio (h/w * 100) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 /* Actions */
 
 	ul.actions {
