@@ -49,9 +49,22 @@
 				<!-- Main -->
 					<div id="main">
 
+						<div id="sidebar">
+							<p>Filter:</p>
+							<!-- Filter dropdown -->
+							<select id="filterDropdown">
+								<option value="all">All Projects</option>
+								<option value="Computer Vision">Computer Vision</option>
+								<option value="Machine Learning">Machine Learning</option>
+								<option value="Numerical Methods">Numerical Methods</option>
+								<option value="Robotics">Robotics</option>
+								<!-- Add more options for other categories as needed -->
+							</select>
+						</div>
+
 						<!-- Posts -->
 							<section class="posts">
-								<article>
+								<article data-category="Machine Learning,Computer Vision">
 									<header>
 										<h2>Running Analysis with<br />
 										Machine Learning (Kotlin)</a></h2>
@@ -62,7 +75,7 @@
 										<li><a href="https://github.com/qadolphe/Running-Form-Analyzer" class="button">Project Code and outputs</a></li>
 									</ul>
 								</article>
-								<article>
+								<article data-category="Robotics">
 									<header>
 										<h2>Traversing a Maze <br />
 										with Turtlebot (Python)</a></h2>
@@ -77,7 +90,7 @@
 									<ul class="actions special">
 										<li><a href="https://github.swarthmore.edu/e28-fall2023/final_project-brandon-quentin" class="button">Project Code</a></li>
 								</article>
-								<article>
+								<article data-category="Computer Vision">
 									<header>
 										<h2>3D Triangulation with<br />
 										Stereo Vision (Python)</a></h2>
@@ -102,7 +115,7 @@
 										<li><a href="web/index.html" class="button">Play</a></li>
 									</ul>
 								</article>
-								<article>
+								<article data-category="Computer Vision">
 									<header>
 										<h2>Hybrid Images <br />
 										and Laplacian Blending (Python)</a></h2>
@@ -113,7 +126,7 @@
 										<li><a href="QA_CS_git_blends.html" class="button">Full description and code</a></li>
 									</ul>
 								</article>
-								<article>
+								<article data-category="Computer Vision">
 									<header>
 										<h2>Tracking the Movement<br />
 										of Tennis Players (Python)</a></h2>
@@ -124,7 +137,7 @@
 										<li><a href="QA_CSgit_tennis.html" class="button">Full description and code</a></li>
 									</ul>
 								</article>
-								<article>
+								<article data-category="Numerical Methods">
 									<header>
 										<h2>Sun, Earth and <br />
 										Moon Simulation (Python)</a></h2>
@@ -138,7 +151,7 @@
 										<li><a href="https://github.com/qadolphe/Sun-Earth-Moon-Simulation" class="button">Project Code and outputs</a></li>
 									</ul>
 								</article>
-								<article>
+								<article data-category="Numerical Methods">
 									<header>
 										<h2>cubic spline<br />
 											interpolation (Python)</a></h2>
@@ -191,6 +204,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/filter.js"></script>
 
 	</body>
 </html>

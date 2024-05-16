@@ -3618,6 +3618,23 @@ input, select, textarea {
 
 		}
 
+/*sidebar */
+	#sidebar {
+		position: sticky;
+		top: 0;
+	}
+
+	/* Style the filter dropdown */
+	#filterDropdown {
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 8px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		background-color: #fff;
+		font-size: 14px;
+	}
+
 /* Nav */
 
 	#nav {
