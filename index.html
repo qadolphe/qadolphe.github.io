@@ -1,284 +1,365 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Quentin Adolphe's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/ico" href="images/Icon.ico">
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quentin Adolphe | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/modern.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="icon" type="image/ico" href="images/Icon.ico">
+</head>
+<body>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Quentin Adolphe</a>
+            <nav>
+                <ul>
+                    <li><a href="#professional">Experience</a></li>
+                    <li><a href="#school">School Work</a></li>
+                    <li><a href="#side-projects">Side Projects</a></li>
+                    <li><a href="resume/Quentin_Adolphe.pdf" target="_blank" class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.9rem;">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Quentin Adolphe's<br />
-						Portfolio</h1>
-						<p><a href="https://html5up.net/license"></a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Hi, I'm Quentin Adolphe</h1>
+                <p>Software Engineer | Robotics | Machine Learning</p>
+                <div class="social-links">
+                    <a href="https://github.com/qadolphe" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+        </section>
 
-				<!-- Header -->
-					<header id="header">
-						<a class="logo">Projects</a>
-					</header>
+        <!-- Professional Experience -->
+        <section id="professional">
+            <div class="container">
+                <div class="section-intro">
+                    <h2>Professional Experience</h2>
+                    <p>My work history and research roles.</p>
+                </div>
+                
+                <div class="timeline" id="experience-timeline">
+                    <!-- General Motors - CFD Automation Engineer -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025 - Present</div>
+                        <h3 class="timeline-title">CFD Automation Engineer</h3>
+                        <div class="timeline-subtitle">General Motors</div>
+                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
+                            <li>Modernized legacy Tkinter GUI to a React/Electron and Flask monorepo to streamline pre-processing, submission, monitoring, and postprocessing work.</li>
+                            <li>Built a JSON-driven UI engine with strict TypeScript schemas, shared MUI component library and NPM Workspaces.</li>
+                            <li>Orchestrated HPC interactions via Flask REST APIs; delivered dashboards and NumPy/Pillow post-processing.</li>
+                            <li>Engineered a Python analytics framework using Pandas to automate ETL and evaluate tire parameters (stiffness, friction) on vehicle stability, implementing metrics like wheel slip, friction circles, and yaw rate.</li>
+                        </ul>
+                    </div>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a>Projects</a></li>
-							<li><a href="FraudPrevention.html">Fraud Prevention Research</a></li>
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="https://github.com/qadolphe" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						</ul>
-					</nav>
+                    <!-- General Motors - Software Validation Engineer -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">Summer 2024</div>
+                        <h3 class="timeline-title">Software Validation Engineer</h3>
+                        <div class="timeline-subtitle">General Motors</div>
+                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
+                            <li>Full stack development of Utility File applications, including a custom generator tool to streamline the flash development process.</li>
+                            <li>Created and automated an application to validate ECU flash process according to Software-Defined Vehicle specifications.</li>
+                        </ul>
+                    </div>
 
-				<!-- Main -->
-					<div id="main">
+                    <!-- USAA - Software Engineering Intern -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">Summer 2023</div>
+                        <h3 class="timeline-title">Software Engineering Intern</h3>
+                        <div class="timeline-subtitle">United Services Automobile Association (USAA)</div>
+                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
+                            <li>Full stack development of a modernized life insurance app with database integration.</li>
+                            <li>Implemented pages with React.js and JSX, and created metadata.</li>
+                        </ul>
+                    </div>
 
-						<div id="sidebar">
-							<p>Filter:</p>
-							<!-- Filter dropdown -->
-							<select id="filterDropdown">
-								<option value="all">All Projects</option>
-								<option value="Computer Vision">Computer Vision</option>
-								<option value="Embedded Systems">Embedded Systems</option>
-								<option value="Machine Learning">Machine Learning</option>
-								<option value="Numerical Methods">Numerical Methods</option>
-								<option value="Robotics">Robotics</option>
-								<option value="Security and Privacy">Security and Privacy</option>
-								<option value="Software Engineering">Software Engineering</option>
-								<!-- Add more options for other categories as needed -->
-							</select>
-						</div>
+                    <!-- Forward Edge AI - Economic Research Investigator (Hidden initially) -->
+                    <div class="timeline-item hidden-experience" style="display: none;">
+                        <div class="timeline-date">Summer 2022</div>
+                        <h3 class="timeline-title">Economic Research Investigator</h3>
+                        <div class="timeline-subtitle">Forward Edge-AI</div>
+                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
+                            <li>Wrote a National Science Foundation-funded economics research paper on the business dealings and intricacies of scam centers and criminals around the world.</li>
+                            <li>Observed on student-led National Security Agency, Cooperative Research and Development Agreement team to assess use cases of NSA’s Protocol Free Encryption Device.</li>
+                        </ul>
+                        <br>
+                        <a href="FraudPrevention.html" class="btn btn-outline">Read Full Research</a>
+                    </div>
+                </div>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article data-category="Machine Learning,Numerical Methods">
-									<header>
-										<h2>Lattice Boltzmann CFD with<br />
-										Machine Learning (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/shortened_output.gif" alt="" /></a>
-									<p>Uses Lattice Boltzmann method to create a fluid simulation of objects. Used simulation to create dataset, which was then used to train a nueral network to predict air flow. Training was largly unsuccessful due to lack of compute.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/CFD_Start" class="button">Project Code and Outputs</a></li>
-									</ul>
-									<ul class="actions special">
-										<li><a href="https://medium.com/swlh/create-your-own-lattice-boltzmann-simulation-with-python-8759e8b53b1c" class="button">Starter Code</a></li>
-									</ul>
-								</article>
-								<article data-category="Software Engineering">
-									<header>
-										<h2>Automated Stock Trading<br />
-										With ChatGPT (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/StockTrades.png" alt="" /></a>
-									<p>Automated day trading. Uses news headlines and ChatGPT sentiment analysis to predict outperforming and underperforming stocks, and creates a long-short strategy for the day. (Code not public.) </p>
-								</article>
-								<article data-category="Machine Learning,Computer Vision">
-									<header>
-										<h2>Running Analysis with<br />
-										Machine Learning (Kotlin)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/NoahLyles.png" alt="" /></a>
-									<p>Android Application that uses Tensor Flow's Single-pose Thunder convolutional neural network to estimate joint positions of human body. Then uses pose classification model to identify phase of running motion (floating or touchdown).</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/Running-Form-Analyzer" class="button">Project Code and Outputs</a></li>
-									</ul>
-								</article>
-								<article data-category="Software Engineering">
-									<header>
-										<h2>College Ride Share<br />
-										Application (Swift)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/CollegeRideShare.png" alt="" /></a>
-									<p>Ride share application to group students at Swarthmore College together for Ubers or Lyfts. Students can schedule trips to the Philadelphia Airport or Swarthmore College, and match with others who are leaving at similar times. Chat integration then allows students to talk with each other to plan meeting time and location.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/College-Ride-Share-App" class="button">Project Code</a></li>
-									</ul>
-								</article>
-								<article data-category="Robotics">
-									<header>
-										<h2>Traversing a Maze <br />
-										with Turtlebot (Python)</a></h2>
-									</header>
-									<div class="video-container">
-										<iframe width="430" height="290" src="https://www.youtube.com/embed/npDTtWgBwEc?si=g4sc4EnxOlWjQ6fT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-									</div>
-									<p>Uses Dijkstra's algorithm to find an optimal path through a maze, and turns that path into a set of commands. A PD controller with tuned parameters is used to control the robots movements.</p>
-									<ul class="actions special">
-										<li><a href="https://mzucker.github.io/swarthmore/e28_f2023/final_project.html" class="button">Project Description From Class</a></li>
-									</ul>
-									<ul class="actions special">
-										<li><a href="https://github.swarthmore.edu/e28-fall2023/final_project-brandon-quentin" class="button">Project Code</a></li>
-								</article>
-								<article data-category="Computer Vision">
-									<header>
-										<h2>3D Triangulation with<br />
-										Stereo Vision (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/stereovision.png" alt="" /></a>
-									<p>Performs a stereo calibration to determine intrinsic and extrinsic parameters for stereo vision setup. Uses parameters to determine 3D positions of objects of interest.</p>
-									<ul class="actions special">
-										<li><a href="QA_CS_ProjectWriteup.pdf" download="Triangulation-With-StereoVision" class="button">Full Description (PDF)</a></li>
-									</ul>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/3D-Triangualtion-with-Stereo-Vision" class="button">Project Code and Outputs</a></li>
-									</ul>
-								</article>
-								<article data-category="Security and Privacy,Numerical Methods">
-									<header>
-										<h2>Pseudorandom Number<br />
-										Generator (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/Pendulums.png" alt="" /></a>
-									<p>Uses the chaotic motion of double pendulums to generate pseudorandom numbers of any length by creating binary strings.</p>
-									<ul class="actions special">
-										<li><a href="https://drive.google.com/file/d/1J3OfnKZ7kjeP90Z5D3xLUAO3uI0_3S4Q/view?usp=sharing" class="button">Full description (PDF)</a></li>
-									</ul>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/CS88-Final-Project" class="button">Project Code and Outputs</a></li>
-									</ul>
-								</article>
-								<article data-category="Embedded Systems">
-									<header>
-										<h2>Building A Heart Rate<br />
-											Monitor (C++/Matlab)</a></h2>
-									</header>
-									<a  class="image fit"><img src="images/HeartRate.png" alt="" /></a>
-									<p>Designing and buidling a heart rate monitor using an electrocardiogram (ECG) measurement system and Nucleo board.
-									</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/Heart-Rate-Monitor" class="button">Full Description and Code</a></li>
-									</ul>
-								</article>
-								<article data-category="Embedded Systems">
-									<header>
-										<h2>Traffic Light (C++)<br />
-											</a></h2>
-									</header>
-									<a  class="image fit"><img src="images/trafficLight.jpeg" alt="" /></a>
-									<p>Building two traffic lights designed for a T intersection. Traffic light behavior is determined by a state machine running on a Nucleo board with inputs from two ultrasonic sensors.
-									</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/Stoplight-State-Machine" class="button">Full Description and Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Conway's Game<br />
-											of Life Recreation (C#/C++)</a></h2>
-									</header>
-									<a  class="image fit"><img src="images/gol.gif" alt="" /></a>
-									<p>Simulates <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> with an interactive application built with Unity.</p>
-									<ul class="actions special">
-										<li><a href="web/index.html" class="button">Play</a></li>
-									</ul>
-								</article>
-								<article data-category="Computer Vision">
-									<header>
-										<h2>Hybrid Images <br />
-										and Laplacian Blending (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/arctic.jpg" alt="" /></a>
-									<p>Exploring two different ways to blend two images. Laplacian blending involves using a mask to blend high and low-frequency information across two pictures as seen above. Hybrid images take the high-frequency information from one photo and the low-frequency information from another and merge them into one.</p>
-									<ul class="actions special">
-										<li><a href="QA_CS_git_blends.html" class="button">Full description and code</a></li>
-									</ul>
-								</article>
-								<article data-category="Computer Vision">
-									<header>
-										<h2>Tracking the Movement<br />
-										of Tennis Players (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/tennis.jpg" alt="" /></a>
-									<p>Using temporal averaging and morphological operators, a connected components analysis is used to distinguish between separate objects and track their locations over time.</p>
-									<ul class="actions special">
-										<li><a href="QA_CSgit_tennis.html" class="button">Full description and code</a></li>
-									</ul>
-								</article>
-								<article data-category="Numerical Methods">
-									<header>
-										<h2>Sun, Earth and <br />
-										Moon Simulation (Python)</a></h2>
-									</header>
-									<a class="image fit"><img src="images/Sun-Earth-Moon-Simulation.gif" alt="" /></a>
-									<p>Uses Newtonian gravitational mechanics and solves an ordinary differential equation to track position of bodies over time.</p>
-									<ul class="actions special">
-										<li><a href="https://drive.google.com/file/d/1UXRMpZS_GBUpGe8bF5Kvdic6FnCGNZ04/preview" class="button">Full description (PDF)</a></li>
-									</ul>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/Sun-Earth-Moon-Simulation" class="button">Project Code and Outputs</a></li>
-									</ul>
-								</article>
-								<article data-category="Numerical Methods">
-									<header>
-										<h2>cubic spline<br />
-											interpolation (Python)</a></h2>
-									</header>
-									<a  class="image fit"><img src="images/CubicSplineExample.png" alt="" /></a>
-									<p>Passes a smooth curve through a set of points using piecewise third-order polynomials. Constructed linear system and implemented Gauss-Seidel Method for solving it</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/qadolphe/Cubic-Splines" class="button">Project Code and Outputs</a></li>
-									</ul>
-								</article>
-							</section>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button id="toggle-experience" class="btn btn-outline">Show More</button>
+                </div>
+            </div>
+        </section>
 
-					</div>
+        <!-- School Work -->
+        <section id="school" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-intro">
+                    <h2>School Work</h2>
+                    <p>Academic projects and course research.</p>
+                </div>
+                
+                <div class="project-grid">
+                    <!-- Lattice Boltzmann -->
+                    <div class="project-card">
+                        <img src="images/shortened_output.gif" alt="Fluid Simulation" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Machine Learning • Numerical Methods</div>
+                            <h3>Lattice Boltzmann CFD</h3>
+                            <p>Created a fluid simulation using Lattice Boltzmann method to train a neural network for predicting air flow.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/CFD_Start">View Code</a>
+                                <a href="https://medium.com/swlh/create-your-own-lattice-boltzmann-simulation-with-python-8759e8b53b1c">Article</a>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-								</div>
-							</form>
-						<section class="split contact">
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">qadolph1@swarthmore.edu</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://github.com/qadolphe" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+                    <!-- Turtlebot Maze -->
+                    <div class="project-card">
+                        <iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube.com/embed/npDTtWgBwEc?si=g4sc4EnxOlWjQ6fT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="project-content">
+                            <div class="project-tags">Robotics • Python</div>
+                            <h3>Turtlebot Maze Traversal</h3>
+                            <p>Implemented Dijkstra's algorithm and a PD controller to navigate a robot through a maze.</p>
+                            <div class="project-links">
+                                <a href="https://mzucker.github.io/swarthmore/e28_f2023/final_project.html">Class Page</a>
+                                <a href="https://github.swarthmore.edu/e28-fall2023/final_project-brandon-quentin">Role Code</a>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+                    <!-- Running Analysis -->
+                    <div class="project-card">
+                        <img src="images/NoahLyles.png" alt="Running Analysis" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">ML • Computer Vision • Kotlin</div>
+                            <h3>Running Form Analysis</h3>
+                            <p>Android app using TensorFlow to estimate joint positions and classify running motion phases (floating or touchdown).</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/Running-Form-Analyzer">View Code</a>
+                            </div>
+                        </div>
+                    </div>
 
-			</div>
+                    <!-- 3D Triangulation -->
+                    <div class="project-card">
+                        <img src="images/stereovision.png" alt="Stereo Vision" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Computer Vision • Python</div>
+                            <h3>3D Triangulation</h3>
+                            <p>Used stereo calibration to determine intrinsic/extrinsic parameters and calculate 3D positions of objects.</p>
+                            <div class="project-links">
+                                <a href="QA_CS_ProjectWriteup.pdf">Read PDF</a>
+                                <a href="https://github.com/qadolphe/3D-Triangualtion-with-Stereo-Vision">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Embedded Systems: Heart Rate -->
+                    <div class="project-card">
+                        <img src="images/HeartRate.png" alt="Heart Rate Monitor" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Embedded • C++ • Matlab</div>
+                            <h3>Heart Rate Monitor</h3>
+                            <p>Designed and built a monitor using an ECG measurement system and Nucleo board.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/Heart-Rate-Monitor">Full Description</a>
+                            </div>
+                        </div>
+                    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/filter.js"></script>
+                    <!-- Embedded Systems: Traffic Light -->
+                    <div class="project-card">
+                        <img src="images/trafficLight.jpeg" alt="Traffic Light" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Embedded • C++</div>
+                            <h3>Traffic Light Controller</h3>
+                            <p>State machine based traffic light controller for a T-intersection using ultrasonic sensors.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/Stoplight-State-Machine">View Code</a>
+                            </div>
+                        </div>
+                    </div>
 
-	</body>
+                    <!-- Cubic Spline -->
+                    <div class="project-card">
+                        <img src="images/CubicSplineExample.png" alt="Cubic Spline" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Numerical Methods • Python</div>
+                            <h3>Cubic Spline Interpolation</h3>
+                            <p>Curve fitting using piecewise third-order polynomials and Gauss-Seidel method.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/Cubic-Splines">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sun/Earth/Moon -->
+                    <div class="project-card">
+                        <img src="images/Sun-Earth-Moon-Simulation.gif" alt="Simulation" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Numerical Methods • Python</div>
+                            <h3>Orbital Simulation</h3>
+                            <p>Tracking positions of celestial bodies using Newtonian mechanics and ODE solvers.</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/file/d/1UXRMpZS_GBUpGe8bF5Kvdic6FnCGNZ04/preview">Read PDF</a>
+                                <a href="https://github.com/qadolphe/Sun-Earth-Moon-Simulation">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pseudorandom -->
+                    <div class="project-card">
+                        <img src="images/Pendulums.png" alt="Chaos" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Security • Numerical Methods</div>
+                            <h3>Chaos Pseudorandom Generator</h3>
+                            <p>Generating random numbers from the chaotic motion of double pendulums.</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/file/d/1J3OfnKZ7kjeP90Z5D3xLUAO3uI0_3S4Q/view?usp=sharing">Read PDF</a>
+                                <a href="https://github.com/qadolphe/CS88-Final-Project">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hybrid Images -->
+                    <div class="project-card">
+                        <img src="images/arctic.jpg" alt="Hybrid Images" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Computer Vision • Python</div>
+                            <h3>Hybrid Images</h3>
+                            <p>Blending images using Laplacian masks and frequency domain manipulation.</p>
+                            <div class="project-links">
+                                <a href="QA_CS_git_blends.html">Full Description</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tennis Tracking -->
+                    <div class="project-card">
+                        <img src="images/tennis.jpg" alt="Tennis" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Computer Vision • Python</div>
+                            <h3>Tennis Player Tracking</h3>
+                            <p>Tracking objects over time using temporal averaging and morphological operators.</p>
+                            <div class="project-links">
+                                <a href="QA_CSgit_tennis.html">Full Description</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Side Business / Projects -->
+        <section id="side-projects">
+            <div class="container">
+                <div class="section-intro">
+                    <h2>Side Business & Projects</h2>
+                    <p>Entrepreneurial ventures and personal coding projects.</p>
+                </div>
+                
+                <div class="project-grid">
+                    <!-- Swatbloc -->
+                    <div class="project-card">
+                        <div style="width: 100%; height: 200px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold;">
+                            Swatbloc Image
+                        </div>
+                        <!-- <img src="images/swatbloc.png" alt="Swatbloc" class="project-image"> -->
+                        <div class="project-content">
+                            <div class="project-tags">TypeScript • Next.js • Gemini API</div>
+                            <h3>Swatbloc (Headless Commerce)</h3>
+                            <p>Designed a type-safe headless commerce SDK within a Turbo monorepo. Built a Generative UI engine using Google Gemini for natural language theme generation.</p>
+                            <div class="project-links">
+                                <span style="font-size: 0.9rem; color: #6b7280; font-style: italic;">Private Codebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stock Trading -->
+                    <div class="project-card">
+                        <img src="images/StockTrades.png" alt="Stock Trading" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Finance • AI • Python</div>
+                            <h3>Automated Stock Trading</h3>
+                            <p>Automated day trading bot using ChatGPT sentiment analysis on news headlines to predict stock performance.</p>
+                            <div class="project-links">
+                                <span style="font-size: 0.9rem; color: #6b7280; font-style: italic;">Private Codebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ride Share -->
+                    <div class="project-card">
+                        <img src="images/CollegeRideShare.png" alt="Ride Share App" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">iOS • Swift • Business</div>
+                            <h3>College Ride Share</h3>
+                            <p>Ride sharing app for Swarthmore College students to coordinate airport trips and split costs.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/College-Ride-Share-App">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game of Life -->
+                    <div class="project-card">
+                        <img src="images/gol.gif" alt="Game of Life" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Game Dev • C# • Unity</div>
+                            <h3>Conway's Game of Life</h3>
+                            <p>Interactive Unity recreation of the famous cellular automaton.</p>
+                            <div class="project-links">
+                                <a href="web/index.html" class="btn btn-outline" style="padding: 0.25rem 0.75rem;">Play Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="https://github.com/qadolphe" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+                <p style="margin-top: 2rem; color: #6b7280;">&copy; Quentin Adolphe. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        document.getElementById('toggle-experience').addEventListener('click', function() {
+            var hiddenItems = document.querySelectorAll('.hidden-experience');
+            var btn = this;
+            
+            hiddenItems.forEach(function(item) {
+                if (item.style.display === 'none') {
+                    item.style.display = 'block';
+                    btn.textContent = 'Show Less';
+                } else {
+                    item.style.display = 'none';
+                    btn.textContent = 'Show More';
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

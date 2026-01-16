@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Quentin Adolphe's Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" type="image/ico" href="images/Icon.ico">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Quentin Adolphe's<br />
+						Portfolio</h1>
+						<p><a href="https://html5up.net/license"></a></p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a class="logo">Projects</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a>Projects</a></li>
+							<li><a href="FraudPrevention.html">Fraud Prevention Research</a></li>
+							
+						</ul>
+						<ul class="icons">
+							<li><a href="https://github.com/qadolphe" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<div id="sidebar">
+							<p>Filter:</p>
+							<!-- Filter dropdown -->
+							<select id="filterDropdown">
+								<option value="all">All Projects</option>
+								<option value="Computer Vision">Computer Vision</option>
+								<option value="Embedded Systems">Embedded Systems</option>
+								<option value="Machine Learning">Machine Learning</option>
+								<option value="Numerical Methods">Numerical Methods</option>
+								<option value="Robotics">Robotics</option>
+								<option value="Security and Privacy">Security and Privacy</option>
+								<option value="Software Engineering">Software Engineering</option>
+								<!-- Add more options for other categories as needed -->
+							</select>
+						</div>
+
+						<!-- Posts -->
+							<section class="posts">
+								<article data-category="Machine Learning,Numerical Methods">
+									<header>
+										<h2>Lattice Boltzmann CFD with<br />
+										Machine Learning (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/shortened_output.gif" alt="" /></a>
+									<p>Uses Lattice Boltzmann method to create a fluid simulation of objects. Used simulation to create dataset, which was then used to train a nueral network to predict air flow. Training was largly unsuccessful due to lack of compute.</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/CFD_Start" class="button">Project Code and Outputs</a></li>
+									</ul>
+									<ul class="actions special">
+										<li><a href="https://medium.com/swlh/create-your-own-lattice-boltzmann-simulation-with-python-8759e8b53b1c" class="button">Starter Code</a></li>
+									</ul>
+								</article>
+								<article data-category="Software Engineering">
+									<header>
+										<h2>Automated Stock Trading<br />
+										With ChatGPT (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/StockTrades.png" alt="" /></a>
+									<p>Automated day trading. Uses news headlines and ChatGPT sentiment analysis to predict outperforming and underperforming stocks, and creates a long-short strategy for the day. (Code not public.) </p>
+								</article>
+								<article data-category="Machine Learning,Computer Vision">
+									<header>
+										<h2>Running Analysis with<br />
+										Machine Learning (Kotlin)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/NoahLyles.png" alt="" /></a>
+									<p>Android Application that uses Tensor Flow's Single-pose Thunder convolutional neural network to estimate joint positions of human body. Then uses pose classification model to identify phase of running motion (floating or touchdown).</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/Running-Form-Analyzer" class="button">Project Code and Outputs</a></li>
+									</ul>
+								</article>
+								<article data-category="Software Engineering">
+									<header>
+										<h2>College Ride Share<br />
+										Application (Swift)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/CollegeRideShare.png" alt="" /></a>
+									<p>Ride share application to group students at Swarthmore College together for Ubers or Lyfts. Students can schedule trips to the Philadelphia Airport or Swarthmore College, and match with others who are leaving at similar times. Chat integration then allows students to talk with each other to plan meeting time and location.</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/College-Ride-Share-App" class="button">Project Code</a></li>
+									</ul>
+								</article>
+								<article data-category="Robotics">
+									<header>
+										<h2>Traversing a Maze <br />
+										with Turtlebot (Python)</a></h2>
+									</header>
+									<div class="video-container">
+										<iframe width="430" height="290" src="https://www.youtube.com/embed/npDTtWgBwEc?si=g4sc4EnxOlWjQ6fT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+									</div>
+									<p>Uses Dijkstra's algorithm to find an optimal path through a maze, and turns that path into a set of commands. A PD controller with tuned parameters is used to control the robots movements.</p>
+									<ul class="actions special">
+										<li><a href="https://mzucker.github.io/swarthmore/e28_f2023/final_project.html" class="button">Project Description From Class</a></li>
+									</ul>
+									<ul class="actions special">
+										<li><a href="https://github.swarthmore.edu/e28-fall2023/final_project-brandon-quentin" class="button">Project Code</a></li>
+								</article>
+								<article data-category="Computer Vision">
+									<header>
+										<h2>3D Triangulation with<br />
+										Stereo Vision (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/stereovision.png" alt="" /></a>
+									<p>Performs a stereo calibration to determine intrinsic and extrinsic parameters for stereo vision setup. Uses parameters to determine 3D positions of objects of interest.</p>
+									<ul class="actions special">
+										<li><a href="QA_CS_ProjectWriteup.pdf" download="Triangulation-With-StereoVision" class="button">Full Description (PDF)</a></li>
+									</ul>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/3D-Triangualtion-with-Stereo-Vision" class="button">Project Code and Outputs</a></li>
+									</ul>
+								</article>
+								<article data-category="Security and Privacy,Numerical Methods">
+									<header>
+										<h2>Pseudorandom Number<br />
+										Generator (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/Pendulums.png" alt="" /></a>
+									<p>Uses the chaotic motion of double pendulums to generate pseudorandom numbers of any length by creating binary strings.</p>
+									<ul class="actions special">
+										<li><a href="https://drive.google.com/file/d/1J3OfnKZ7kjeP90Z5D3xLUAO3uI0_3S4Q/view?usp=sharing" class="button">Full description (PDF)</a></li>
+									</ul>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/CS88-Final-Project" class="button">Project Code and Outputs</a></li>
+									</ul>
+								</article>
+								<article data-category="Embedded Systems">
+									<header>
+										<h2>Building A Heart Rate<br />
+											Monitor (C++/Matlab)</a></h2>
+									</header>
+									<a  class="image fit"><img src="images/HeartRate.png" alt="" /></a>
+									<p>Designing and buidling a heart rate monitor using an electrocardiogram (ECG) measurement system and Nucleo board.
+									</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/Heart-Rate-Monitor" class="button">Full Description and Code</a></li>
+									</ul>
+								</article>
+								<article data-category="Embedded Systems">
+									<header>
+										<h2>Traffic Light (C++)<br />
+											</a></h2>
+									</header>
+									<a  class="image fit"><img src="images/trafficLight.jpeg" alt="" /></a>
+									<p>Building two traffic lights designed for a T intersection. Traffic light behavior is determined by a state machine running on a Nucleo board with inputs from two ultrasonic sensors.
+									</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/Stoplight-State-Machine" class="button">Full Description and Code</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<h2>Conway's Game<br />
+											of Life Recreation (C#/C++)</a></h2>
+									</header>
+									<a  class="image fit"><img src="images/gol.gif" alt="" /></a>
+									<p>Simulates <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> with an interactive application built with Unity.</p>
+									<ul class="actions special">
+										<li><a href="web/index.html" class="button">Play</a></li>
+									</ul>
+								</article>
+								<article data-category="Computer Vision">
+									<header>
+										<h2>Hybrid Images <br />
+										and Laplacian Blending (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/arctic.jpg" alt="" /></a>
+									<p>Exploring two different ways to blend two images. Laplacian blending involves using a mask to blend high and low-frequency information across two pictures as seen above. Hybrid images take the high-frequency information from one photo and the low-frequency information from another and merge them into one.</p>
+									<ul class="actions special">
+										<li><a href="QA_CS_git_blends.html" class="button">Full description and code</a></li>
+									</ul>
+								</article>
+								<article data-category="Computer Vision">
+									<header>
+										<h2>Tracking the Movement<br />
+										of Tennis Players (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/tennis.jpg" alt="" /></a>
+									<p>Using temporal averaging and morphological operators, a connected components analysis is used to distinguish between separate objects and track their locations over time.</p>
+									<ul class="actions special">
+										<li><a href="QA_CSgit_tennis.html" class="button">Full description and code</a></li>
+									</ul>
+								</article>
+								<article data-category="Numerical Methods">
+									<header>
+										<h2>Sun, Earth and <br />
+										Moon Simulation (Python)</a></h2>
+									</header>
+									<a class="image fit"><img src="images/Sun-Earth-Moon-Simulation.gif" alt="" /></a>
+									<p>Uses Newtonian gravitational mechanics and solves an ordinary differential equation to track position of bodies over time.</p>
+									<ul class="actions special">
+										<li><a href="https://drive.google.com/file/d/1UXRMpZS_GBUpGe8bF5Kvdic6FnCGNZ04/preview" class="button">Full description (PDF)</a></li>
+									</ul>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/Sun-Earth-Moon-Simulation" class="button">Project Code and Outputs</a></li>
+									</ul>
+								</article>
+								<article data-category="Numerical Methods">
+									<header>
+										<h2>cubic spline<br />
+											interpolation (Python)</a></h2>
+									</header>
+									<a  class="image fit"><img src="images/CubicSplineExample.png" alt="" /></a>
+									<p>Passes a smooth curve through a set of points using piecewise third-order polynomials. Constructed linear system and implemented Gauss-Seidel Method for solving it</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/qadolphe/Cubic-Splines" class="button">Project Code and Outputs</a></li>
+									</ul>
+								</article>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+								</div>
+							</form>
+						<section class="split contact">
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">qadolph1@swarthmore.edu</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://github.com/qadolphe" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/filter.js"></script>
+
+	</body>
+</html>
