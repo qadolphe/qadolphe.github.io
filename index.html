@@ -38,8 +38,9 @@
                         GitHub</a>
                     <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i
                             class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i>
-                        Email</a>
+                    <a href="#" class="btn btn-outline copy-email-btn" data-email="qadolphe1@gmail.com"><i
+                            class="fas fa-envelope"></i>
+                        <span>Email</span></a>
                 </div>
             </div>
         </section>
@@ -65,8 +66,11 @@
                                     style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.75rem; font-weight: 500;">
                                     Mar 2026 - Present · 2 mos</div>
                                 <ul style="list-style-type: disc; margin-left: 1.5rem; color: #4b5563;">
-                                    <li>Built a Python pipeline on Databricks to replace a brittle Excel/VBA workbook, processing ~49K deliverable rows across ~100 vehicle programs in under 30 seconds</li>
-                                    <li>Developed a Streamlit dashboard with OAuth login and write-back to SharePoint Lists, distributed as a self-updating executable to 50+ engineers via CI/CD</li>
+                                    <li>Built a Python pipeline on Databricks to replace a brittle Excel/VBA workbook,
+                                        processing ~49K deliverable rows across ~100 vehicle programs in under 30
+                                        seconds</li>
+                                    <li>Developed a Streamlit dashboard with OAuth login and write-back to SharePoint
+                                        Lists, distributed as a self-updating executable to 50+ engineers via CI/CD</li>
                                 </ul>
                             </div>
                         </details>
@@ -410,8 +414,9 @@
                         GitHub</a>
                     <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i
                             class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i>
-                        Email</a>
+                    <a href="#" class="btn btn-outline copy-email-btn" data-email="qadolphe1@gmail.com"><i
+                            class="fas fa-envelope"></i>
+                        <span>Email</span></a>
                 </div>
                 <p style="margin-top: 2rem; color: #6b7280;">&copy; Quentin Adolphe. All rights reserved.</p>
             </div>
@@ -432,6 +437,29 @@
                     item.style.display = 'none';
                     btn.textContent = 'Show More';
                 }
+            });
+        });
+
+        document.querySelectorAll('.copy-email-btn').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                var email = this.getAttribute('data-email');
+                navigator.clipboard.writeText(email).then(() => {
+                    var span = this.querySelector('span');
+                    var icon = this.querySelector('i');
+                    var originalText = span.textContent;
+                    var originalIcon = icon.className;
+
+                    span.textContent = ' Copied!';
+                    icon.className = 'fas fa-check';
+
+                    setTimeout(() => {
+                        span.textContent = originalText;
+                        icon.className = originalIcon;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy email: ', err);
+                });
             });
         });
     </script>
