@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <link rel="icon" type="image/ico" href="images/Icon.ico">
 </head>
+
 <body>
 
     <header>
@@ -18,7 +20,8 @@
                     <li><a href="#professional">Experience</a></li>
                     <li><a href="#school">School Work</a></li>
                     <li><a href="#side-projects">Side Projects</a></li>
-                    <li><a href="resume/Quentin_Adolphe.pdf" target="_blank" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1.25rem;">Resume</a></li>
+                    <li><a href="resume/Quentin_Adolphe.pdf" target="_blank" class="btn btn-outline"
+                            style="font-size: 0.9rem; padding: 0.5rem 1.25rem;">Resume</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,9 +34,12 @@
                 <h1>Hi, I'm Quentin Adolphe</h1>
                 <p>Software Engineer | Robotics | Machine Learning</p>
                 <div class="social-links">
-                    <a href="https://github.com/qadolphe" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://github.com/qadolphe" class="btn btn-outline"><i class="fab fa-github"></i>
+                        GitHub</a>
+                    <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i>
+                        Email</a>
                 </div>
             </div>
         </section>
@@ -45,29 +51,68 @@
                     <h2>Professional Experience</h2>
                     <p>My work history and research roles.</p>
                 </div>
-                
+
                 <div class="timeline" id="experience-timeline">
-                    <!-- General Motors - CFD Automation Engineer -->
+                    <!-- General Motors -->
                     <div class="timeline-item">
-                        <div class="timeline-date">2025 - Present</div>
-                        <h3 class="timeline-title">CFD Automation Engineer</h3>
-                        <div class="timeline-subtitle">General Motors</div>
-                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
-                            <li>Modernized legacy Tkinter GUI to a React/Electron and Flask monorepo to streamline pre-processing, submission, monitoring, and postprocessing work.</li>
-                            <li>Built a JSON-driven UI engine with strict TypeScript schemas, shared MUI component library and NPM Workspaces.</li>
-                            <li>Orchestrated HPC interactions via Flask REST APIs; delivered dashboards and NumPy/Pillow post-processing.</li>
-                            <li>Engineered a Python analytics framework using Pandas to automate ETL and evaluate tire parameters (stiffness, friction) on vehicle stability, implementing metrics like wheel slip, friction circles, and yaw rate.</li>
-                        </ul>
+                        <div class="timeline-date">Summer 2024 - Present</div>
+                        <h3 class="timeline-title">General Motors</h3>
+
+                        <details class="job-accordion" open>
+                            <summary class="job-summary">Dimensional Systems Engineer</summary>
+                            <div class="job-content">
+                                <div
+                                    style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.75rem; font-weight: 500;">
+                                    Mar 2026 - Present · 2 mos</div>
+                                <ul style="list-style-type: disc; margin-left: 1.5rem; color: #4b5563;">
+                                    <!-- Descriptions to be added -->
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="job-accordion">
+                            <summary class="job-summary">CFD Automation Engineer</summary>
+                            <div class="job-content">
+                                <div
+                                    style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.75rem; font-weight: 500;">
+                                    Jul 2025 - Mar 2026 · 9 mos · Full-time</div>
+                                <ul style="list-style-type: disc; margin-left: 1.5rem; color: #4b5563;">
+                                    <li>Modernized legacy Tkinter GUI to a React/Electron and Flask monorepo to
+                                        streamline pre-processing, submission, monitoring, and postprocessing work.</li>
+                                    <li>Built a JSON-driven UI engine with strict TypeScript schemas, shared MUI
+                                        component library and NPM Workspaces.</li>
+                                    <li>Orchestrated HPC interactions via Flask REST APIs; delivered dashboards and
+                                        NumPy/Pillow post-processing.</li>
+                                    <li>Engineered a Python analytics framework using Pandas to automate ETL and
+                                        evaluate tire parameters (stiffness, friction) on vehicle stability,
+                                        implementing metrics like wheel slip, friction circles, and yaw rate.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="job-accordion">
+                            <summary class="job-summary">Software Validation Engineer</summary>
+                            <div class="job-content">
+                                <div
+                                    style="font-size: 0.9rem; color: #6b7280; margin-bottom: 0.75rem; font-weight: 500;">
+                                    Summer 2024 · Internship</div>
+                                <ul style="list-style-type: disc; margin-left: 1.5rem; color: #4b5563;">
+                                    <li>Full stack development of Utility File applications, including a custom
+                                        generator tool to streamline the flash development process.</li>
+                                    <li>Created and automated an application to validate ECU flash process according to
+                                        Software-Defined Vehicle specifications.</li>
+                                </ul>
+                            </div>
+                        </details>
                     </div>
 
-                    <!-- General Motors - Software Validation Engineer -->
+                    <!-- Swarthmore College - Teaching Assistant -->
                     <div class="timeline-item">
-                        <div class="timeline-date">Summer 2024</div>
-                        <h3 class="timeline-title">Software Validation Engineer</h3>
-                        <div class="timeline-subtitle">General Motors</div>
+                        <div class="timeline-date">Jan 2024 - May 2025 · 1 yr 5 mos</div>
+                        <h3 class="timeline-title">Teaching Assistant</h3>
+                        <div class="timeline-subtitle">Swarthmore College · Part-time</div>
                         <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
-                            <li>Full stack development of Utility File applications, including a custom generator tool to streamline the flash development process.</li>
-                            <li>Created and automated an application to validate ECU flash process according to Software-Defined Vehicle specifications.</li>
+                            <li>Teaching Assistant for Computer Vision course.</li>
                         </ul>
                     </div>
 
@@ -77,7 +122,8 @@
                         <h3 class="timeline-title">Software Engineering Intern</h3>
                         <div class="timeline-subtitle">United Services Automobile Association (USAA)</div>
                         <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
-                            <li>Full stack development of a modernized life insurance app with database integration.</li>
+                            <li>Full stack development of a modernized life insurance app with database integration.
+                            </li>
                             <li>Implemented pages with React.js and JSX, and created metadata.</li>
                         </ul>
                     </div>
@@ -88,8 +134,10 @@
                         <h3 class="timeline-title">Economic Research Investigator</h3>
                         <div class="timeline-subtitle">Forward Edge-AI</div>
                         <ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; color: #4b5563;">
-                            <li>Wrote a National Science Foundation-funded economics research paper on the business dealings and intricacies of scam centers and criminals around the world.</li>
-                            <li>Observed on student-led National Security Agency, Cooperative Research and Development Agreement team to assess use cases of NSA’s Protocol Free Encryption Device.</li>
+                            <li>Wrote a National Science Foundation-funded economics research paper on the business
+                                dealings and intricacies of scam centers and criminals around the world.</li>
+                            <li>Observed on student-led National Security Agency, Cooperative Research and Development
+                                Agreement team to assess use cases of NSA’s Protocol Free Encryption Device.</li>
                         </ul>
                         <br>
                         <a href="FraudPrevention.html" class="btn btn-outline">Read Full Research</a>
@@ -109,32 +157,26 @@
                     <h2>School Work</h2>
                     <p>Academic projects and course research.</p>
                 </div>
-                
+
                 <div class="project-grid">
-                    <!-- Lattice Boltzmann -->
-                    <div class="project-card">
-                        <img src="images/shortened_output.gif" alt="Fluid Simulation" class="project-image">
-                        <div class="project-content">
-                            <div class="project-tags">Machine Learning • Numerical Methods</div>
-                            <h3>Lattice Boltzmann CFD</h3>
-                            <p>Created a fluid simulation using Lattice Boltzmann method to train a neural network for predicting air flow.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/qadolphe/CFD_Start">View Code</a>
-                                <a href="https://medium.com/swlh/create-your-own-lattice-boltzmann-simulation-with-python-8759e8b53b1c">Article</a>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Turtlebot Maze -->
                     <div class="project-card">
-                        <iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube.com/embed/npDTtWgBwEc?si=g4sc4EnxOlWjQ6fT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe style="width: 100%; aspect-ratio: 16/9;"
+                            src="https://www.youtube.com/embed/npDTtWgBwEc?si=g4sc4EnxOlWjQ6fT"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                         <div class="project-content">
                             <div class="project-tags">Robotics • Python</div>
                             <h3>Turtlebot Maze Traversal</h3>
-                            <p>Implemented Dijkstra's algorithm and a PD controller to navigate a robot through a maze.</p>
+                            <p>Implemented Dijkstra's algorithm and a PD controller to navigate a robot through a maze.
+                            </p>
                             <div class="project-links">
-                                <a href="https://mzucker.github.io/swarthmore/e28_f2023/final_project.html">Class Page</a>
-                                <a href="https://github.swarthmore.edu/e28-fall2023/final_project-brandon-quentin">Role Code</a>
+                                <a href="https://mzucker.github.io/swarthmore/e28_f2023/final_project.html">Class
+                                    Page</a>
+                                <a href="https://github.swarthmore.edu/e28-fall2023/final_project-brandon-quentin">Role
+                                    Code</a>
                             </div>
                         </div>
                     </div>
@@ -145,7 +187,8 @@
                         <div class="project-content">
                             <div class="project-tags">ML • Computer Vision • Kotlin</div>
                             <h3>Running Form Analysis</h3>
-                            <p>Android app using TensorFlow to estimate joint positions and classify running motion phases (floating or touchdown).</p>
+                            <p>Android app using TensorFlow to estimate joint positions and classify running motion
+                                phases (floating or touchdown).</p>
                             <div class="project-links">
                                 <a href="https://github.com/qadolphe/Running-Form-Analyzer">View Code</a>
                             </div>
@@ -158,14 +201,15 @@
                         <div class="project-content">
                             <div class="project-tags">Computer Vision • Python</div>
                             <h3>3D Triangulation</h3>
-                            <p>Used stereo calibration to determine intrinsic/extrinsic parameters and calculate 3D positions of objects.</p>
+                            <p>Used stereo calibration to determine intrinsic/extrinsic parameters and calculate 3D
+                                positions of objects.</p>
                             <div class="project-links">
                                 <a href="QA_CS_ProjectWriteup.pdf">Read PDF</a>
                                 <a href="https://github.com/qadolphe/3D-Triangualtion-with-Stereo-Vision">View Code</a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Embedded Systems: Heart Rate -->
                     <div class="project-card">
                         <img src="images/HeartRate.png" alt="Heart Rate Monitor" class="project-image">
@@ -185,7 +229,8 @@
                         <div class="project-content">
                             <div class="project-tags">Embedded • C++</div>
                             <h3>Traffic Light Controller</h3>
-                            <p>State machine based traffic light controller for a T-intersection using ultrasonic sensors.</p>
+                            <p>State machine based traffic light controller for a T-intersection using ultrasonic
+                                sensors.</p>
                             <div class="project-links">
                                 <a href="https://github.com/qadolphe/Stoplight-State-Machine">View Code</a>
                             </div>
@@ -213,12 +258,13 @@
                             <h3>Orbital Simulation</h3>
                             <p>Tracking positions of celestial bodies using Newtonian mechanics and ODE solvers.</p>
                             <div class="project-links">
-                                <a href="https://drive.google.com/file/d/1UXRMpZS_GBUpGe8bF5Kvdic6FnCGNZ04/preview">Read PDF</a>
+                                <a href="https://drive.google.com/file/d/1UXRMpZS_GBUpGe8bF5Kvdic6FnCGNZ04/preview">Read
+                                    PDF</a>
                                 <a href="https://github.com/qadolphe/Sun-Earth-Moon-Simulation">View Code</a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Pseudorandom -->
                     <div class="project-card">
                         <img src="images/Pendulums.png" alt="Chaos" class="project-image">
@@ -227,7 +273,9 @@
                             <h3>Chaos Pseudorandom Generator</h3>
                             <p>Generating random numbers from the chaotic motion of double pendulums.</p>
                             <div class="project-links">
-                                <a href="https://drive.google.com/file/d/1J3OfnKZ7kjeP90Z5D3xLUAO3uI0_3S4Q/view?usp=sharing">Read PDF</a>
+                                <a
+                                    href="https://drive.google.com/file/d/1J3OfnKZ7kjeP90Z5D3xLUAO3uI0_3S4Q/view?usp=sharing">Read
+                                    PDF</a>
                                 <a href="https://github.com/qadolphe/CS88-Final-Project">View Code</a>
                             </div>
                         </div>
@@ -267,23 +315,42 @@
         <section id="side-projects">
             <div class="container">
                 <div class="section-intro">
-                    <h2>Side Business & Projects</h2>
+                    <h2>Side Projects</h2>
                     <p>Entrepreneurial ventures and personal coding projects.</p>
                 </div>
-                
+
                 <div class="project-grid">
                     <!-- Swatbloc -->
                     <div class="project-card">
-                        <div style="width: 100%; height: 200px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold;">
+                        <div
+                            style="width: 100%; height: 200px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold;">
                             Swatbloc Image
                         </div>
                         <!-- <img src="images/swatbloc.png" alt="Swatbloc" class="project-image"> -->
                         <div class="project-content">
                             <div class="project-tags">TypeScript • Next.js • Gemini API</div>
                             <h3>Swatbloc (Headless Commerce)</h3>
-                            <p>Designed a type-safe headless commerce SDK within a Turbo monorepo. Built a Generative UI engine using Google Gemini for natural language theme generation.</p>
+                            <p>Designed a type-safe headless commerce SDK within a Turbo monorepo. Built a Generative UI
+                                engine using Google Gemini for natural language theme generation.</p>
                             <div class="project-links">
-                                <span style="font-size: 0.9rem; color: #6b7280; font-style: italic;">Private Codebase</span>
+                                <span style="font-size: 0.9rem; color: #6b7280; font-style: italic;">Private
+                                    Codebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lattice Boltzmann -->
+                    <div class="project-card">
+                        <img src="images/shortened_output.gif" alt="Fluid Simulation" class="project-image">
+                        <div class="project-content">
+                            <div class="project-tags">Machine Learning • Numerical Methods</div>
+                            <h3>Lattice Boltzmann CFD</h3>
+                            <p>Created a fluid simulation using Lattice Boltzmann method to train a neural network for
+                                predicting air flow (it doesn't work but I tried).</p>
+                            <div class="project-links">
+                                <a href="https://github.com/qadolphe/CFD_Start">View Code</a>
+                                <a
+                                    href="https://medium.com/swlh/create-your-own-lattice-boltzmann-simulation-with-python-8759e8b53b1c">Article</a>
                             </div>
                         </div>
                     </div>
@@ -294,9 +361,11 @@
                         <div class="project-content">
                             <div class="project-tags">Finance • AI • Python</div>
                             <h3>Automated Stock Trading</h3>
-                            <p>Automated day trading bot using ChatGPT sentiment analysis on news headlines to predict stock performance.</p>
+                            <p>Automated day trading bot using ChatGPT sentiment analysis on news headlines to predict
+                                stock performance.</p>
                             <div class="project-links">
-                                <span style="font-size: 0.9rem; color: #6b7280; font-style: italic;">Private Codebase</span>
+                                <span style="font-size: 0.9rem; color: #6b7280; font-style: italic;">Private
+                                    Codebase</span>
                             </div>
                         </div>
                     </div>
@@ -307,7 +376,8 @@
                         <div class="project-content">
                             <div class="project-tags">iOS • Swift • Business</div>
                             <h3>College Ride Share</h3>
-                            <p>Ride sharing app for Swarthmore College students to coordinate airport trips and split costs.</p>
+                            <p>Ride sharing app for Swarthmore College students to coordinate airport trips and split
+                                costs.</p>
                             <div class="project-links">
                                 <a href="https://github.com/qadolphe/College-Ride-Share-App">View Code</a>
                             </div>
@@ -322,7 +392,8 @@
                             <h3>Conway's Game of Life</h3>
                             <p>Interactive Unity recreation of the famous cellular automaton.</p>
                             <div class="project-links">
-                                <a href="web/index.html" class="btn btn-outline" style="padding: 0.25rem 0.75rem;">Play Now</a>
+                                <a href="web/index.html" class="btn btn-outline" style="padding: 0.25rem 0.75rem;">Play
+                                    Now</a>
                             </div>
                         </div>
                     </div>
@@ -334,9 +405,12 @@
         <footer>
             <div class="container">
                 <div class="social-links">
-                    <a href="https://github.com/qadolphe" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://github.com/qadolphe" class="btn btn-outline"><i class="fab fa-github"></i>
+                        GitHub</a>
+                    <a href="https://www.linkedin.com/in/quentin-adolphe-b72a04223" class="btn btn-outline"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:qadolph1@swarthmore.edu" class="btn btn-outline"><i class="fas fa-envelope"></i>
+                        Email</a>
                 </div>
                 <p style="margin-top: 2rem; color: #6b7280;">&copy; Quentin Adolphe. All rights reserved.</p>
             </div>
@@ -345,11 +419,11 @@
     </main>
 
     <script>
-        document.getElementById('toggle-experience').addEventListener('click', function() {
+        document.getElementById('toggle-experience').addEventListener('click', function () {
             var hiddenItems = document.querySelectorAll('.hidden-experience');
             var btn = this;
-            
-            hiddenItems.forEach(function(item) {
+
+            hiddenItems.forEach(function (item) {
                 if (item.style.display === 'none') {
                     item.style.display = 'block';
                     btn.textContent = 'Show Less';
@@ -362,4 +436,5 @@
     </script>
 
 </body>
+
 </html>
