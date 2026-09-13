@@ -10,6 +10,11 @@
     var coverageRoot = document.getElementById("keyword-coverage");
     var targetTitleInput = document.getElementById("target-title");
     var keywordInput = document.getElementById("target-keywords");
+    var fontInputs = {
+        name: document.getElementById("font-name"),
+        section: document.getElementById("font-section"),
+        content: document.getElementById("font-content")
+    };
     var toast = document.getElementById("toast");
     var toastTimer = null;
 
@@ -49,6 +54,27 @@
             });
         });
         includeSkills = true;
+        Object.keys(fontInputs).forEach(function (key) {
+            fontInputs[key].value = fontInputs[key].defaultValue;
+        });
+        applyTypography();
+    }
+
+    function getTypography() {
+        var values = {};
+        Object.keys(fontInputs).forEach(function (key) {
+            var input = fontInputs[key];
+            var value = Number(input.value) || Number(input.defaultValue);
+            values[key] = Math.min(Number(input.max), Math.max(Number(input.min), value));
+        });
+        return values;
+    }
+
+    function applyTypography() {
+        var values = getTypography();
+        Object.keys(values).forEach(function (key) {
+            previewRoot.style.setProperty("--resume-" + key + "-size", values[key] + "pt");
+        });
     }
 
     function itemTitle(sectionKey, item) {
@@ -277,6 +303,9 @@
     function buildLatex() {
         var profile = data.profile;
         var targetTitle = targetTitleInput.value.trim();
+        var bodyLeading = (typography.content * 1.24).toFixed(2);
+        var sectionLeading = (typography.section * 1.09).toFixed(2);
+        var nameLeading = (typography.name * 1.08).toFixed(2);
         var education = selectedItems("education").map(function (item) {
             return "\\textbf{" + latexEscape(item.institution) + "}\\\\\n" +
                 "\\textit{" + latexEscape(item.degree) + "}" +
@@ -308,12 +337,13 @@
             "\\setlength{\\parskip}{0pt}",
             "\\linespread{1.03}",
             "\\setlist[itemize]{leftmargin=*,topsep=1pt,itemsep=0pt,parsep=0pt,partopsep=0pt}",
-            "\\newcommand{\\ressection}[1]{\\par\\addvspace{7pt}{\\fontsize{11}{12}\\selectfont\\textbf{#1}}\\par\\nobreak\\vspace{1.5pt}\\hrule\\nobreak\\vspace{3pt}}",
+            "\\newcommand{\\ressection}[1]{\\par\\addvspace{7pt}{\\fontsize{" + typography.section + "}{" + sectionLeading + "}\\selectfont\\textbf{#1}}\\par\\nobreak\\vspace{1.5pt}\\hrule\\nobreak\\vspace{3pt}}",
             "\\pagestyle{empty}",
             "\\begin{document}",
             "\\raggedright",
+            "\\fontsize{" + typography.content + "}{" + bodyLeading + "}\\selectfont",
             "{\\centering",
-            "{\\fontsize{13}{14}\\selectfont \\textbf{" + latexEscape(profile.name) + "}}\\par",
+            "{\\fontsize{" + typography.name + "}{" + nameLeading + "}\\selectfont \\textbf{" + latexEscape(profile.name) + "}}\\par",
             "\\vspace{1pt}",
             latexEscape(profile.location) + " \\textbar{} " +
                 "\\href{mailto:" + profile.email + "}{" + latexEscape(profile.email) + "} \\textbar{} " +
@@ -331,6 +361,201 @@
         ];
 
         return parts.filter(Boolean).join("\n\n") + "\n";
+    }
+
+    function pdfSafe(value) {
+        return String(value || "")
+            .replace(/[–—]/g, "-")
+            .replace(/[‘’]/g, "'")
+            .replace(/[“”]/g, '"');
+    }
+
+    function buildPdf() {
+        if (!window.jspdf || !window.jspdf.jsPDF) {
+            throw new Error("PDF library unavailable");
+        }
+
+        var jsPDF = window.jspdf.jsPDF;
+        var doc = new jsPDF({
+            orientation: "portrait",
+            unit: "pt",
+            format: "letter",
+            compress: true,
+            putOnlyUsedFonts: true
+        });
+        var profile = data.profile;
+        var pageWidth = doc.internal.pageSize.getWidth();
+        var pageHeight = doc.internal.pageSize.getHeight();
+        var marginX = 37.44;
+        var marginTop = 36;
+        var marginBottom = 36;
+        var contentWidth = pageWidth - (marginX * 2);
+        var bodySize = typography.content;
+        var bodyLeading = bodySize * 1.24;
+        var y = marginTop;
+
+        doc.setProperties({
+            title: "Quentin Adolphe Resume",
+            author: "Quentin Adolphe",
+            subject: targetTitleInput.value.trim() || "Resume"
+        });
+
+        function setFont(style, size) {
+            doc.setFont("times", style || "normal");
+            doc.setFontSize(size || bodySize);
+        }
+
+        function ensureSpace(height) {
+            if (y + height <= pageHeight - marginBottom) return;
+            doc.addPage();
+            y = marginTop;
+        }
+
+        function wrappedLines(text, width, style, size) {
+            setFont(style, size);
+            return doc.splitTextToSize(pdfSafe(text), width);
+        }
+
+        function drawWrapped(text, x, width, style, size, leading) {
+            var fontSize = size || bodySize;
+            var lineHeight = leading || (fontSize * 1.24);
+            var lines = wrappedLines(text, width, style, fontSize);
+            ensureSpace(lines.length * lineHeight);
+            setFont(style, fontSize);
+            lines.forEach(function (line) {
+                doc.text(line, x, y + fontSize);
+                y += lineHeight;
+            });
+        }
+
+        function drawSection(title) {
+            var size = typography.section;
+            var leading = size * 1.09;
+            y += 6;
+            ensureSpace(leading + 5);
+            setFont("bold", size);
+            doc.text(pdfSafe(title.toUpperCase()), marginX, y + size);
+            y += leading;
+            doc.setDrawColor(51);
+            doc.setLineWidth(0.75);
+            doc.line(marginX, y + 1.5, pageWidth - marginX, y + 1.5);
+            y += 4;
+        }
+
+        function drawHeadingRow(left, right, style) {
+            var rightText = pdfSafe(right || "");
+            setFont("normal", bodySize);
+            var rightWidth = rightText ? doc.getTextWidth(rightText) : 0;
+            var gap = rightText ? 12 : 0;
+            var leftWidth = contentWidth - rightWidth - gap;
+            var lines = wrappedLines(left, leftWidth, style || "normal", bodySize);
+            ensureSpace(lines.length * bodyLeading);
+            lines.forEach(function (line, index) {
+                setFont(style || "normal", bodySize);
+                doc.text(line, marginX, y + bodySize);
+                if (index === 0 && rightText) {
+                    setFont("normal", bodySize);
+                    doc.text(rightText, pageWidth - marginX, y + bodySize, { align: "right" });
+                }
+                y += bodyLeading;
+            });
+        }
+
+        function drawCompany(organization, location) {
+            ensureSpace(bodyLeading);
+            setFont("bold", bodySize);
+            doc.text(pdfSafe(organization), marginX, y + bodySize);
+            if (location) {
+                doc.text(pdfSafe(location), pageWidth - marginX, y + bodySize, { align: "right" });
+            }
+            y += bodyLeading;
+        }
+
+        function drawBullets(bullets) {
+            bullets.forEach(function (bullet) {
+                var indent = 9;
+                var lines = wrappedLines(bullet, contentWidth - indent, "normal", bodySize);
+                ensureSpace(lines.length * bodyLeading);
+                lines.forEach(function (line, index) {
+                    setFont("normal", bodySize);
+                    if (index === 0) doc.text("-", marginX, y + bodySize);
+                    doc.text(line, marginX + indent, y + bodySize);
+                    y += bodyLeading;
+                });
+            });
+        }
+
+        function drawLabeledLine(label, value, separator) {
+            var labelText = pdfSafe(label + (separator || ""));
+            var valueText = pdfSafe(value);
+            setFont("bold", bodySize);
+            var labelWidth = doc.getTextWidth(labelText);
+            var valueLines = wrappedLines(valueText, contentWidth - labelWidth, "normal", bodySize);
+            ensureSpace(valueLines.length * bodyLeading);
+            valueLines.forEach(function (line, index) {
+                if (index === 0) {
+                    setFont("bold", bodySize);
+                    doc.text(labelText, marginX, y + bodySize);
+                }
+                setFont("normal", bodySize);
+                doc.text(line, marginX + labelWidth, y + bodySize);
+                y += bodyLeading;
+            });
+        }
+
+        setFont("bold", typography.name);
+        doc.text(pdfSafe(profile.name), pageWidth / 2, y + typography.name, { align: "center" });
+        y += typography.name * 1.08;
+        var contact = [profile.location, profile.email, compactUrl(profile.website), compactUrl(profile.github)]
+            .filter(Boolean).join(" | ");
+        setFont("normal", bodySize);
+        doc.text(pdfSafe(contact), pageWidth / 2, y + bodySize, { align: "center" });
+        y += bodyLeading;
+        if (targetTitleInput.value.trim()) {
+            setFont("bold", bodySize);
+            doc.text("Target Role: " + pdfSafe(targetTitleInput.value.trim()), pageWidth / 2, y + bodySize, { align: "center" });
+            y += bodyLeading;
+        }
+
+        var education = selectedItems("education");
+        if (education.length) {
+            drawSection("Education");
+            education.forEach(function (item) {
+                y += 2;
+                drawCompany(item.institution, "");
+                drawHeadingRow(item.degree + (item.details ? " | " + item.details : ""), item.date, "italic");
+            });
+        }
+
+        var experience = selectedItems("experience");
+        if (experience.length) {
+            drawSection("Professional Experience");
+            experience.forEach(function (item) {
+                y += 2;
+                drawCompany(item.organization, item.location);
+                drawHeadingRow(item.title, item.date, "italic");
+                drawBullets(item.bullets);
+            });
+        }
+
+        var projects = selectedItems("projects");
+        if (projects.length) {
+            drawSection("Projects");
+            projects.forEach(function (item) {
+                y += 2;
+                drawLabeledLine(item.name, " | " + item.technologies.join(", "));
+                drawBullets(item.bullets);
+            });
+        }
+
+        if (includeSkills) {
+            drawSection("Skills");
+            data.skillGroups.forEach(function (group) {
+                drawLabeledLine(group.label, group.items.join(", "), ": ");
+            });
+        }
+
+        return doc;
     }
 
     function updateCoverage() {
@@ -354,6 +579,7 @@
 
     function updateAll() {
         previewRoot.innerHTML = buildPreviewHtml();
+        syncTypographyControls();
         var total = selected.size + (includeSkills ? 1 : 0);
         countRoot.textContent = total + (total === 1 ? " item selected" : " items selected");
         updateCoverage();
@@ -367,7 +593,7 @@
     }
 
     function download(content, filename, type) {
-        var blob = new Blob([content], { type: type });
+        var blob = content instanceof Blob ? content : new Blob([content], { type: type });
         var url = URL.createObjectURL(blob);
         var link = document.createElement("a");
         link.href = url;
@@ -404,6 +630,12 @@
 
     targetTitleInput.addEventListener("input", updateAll);
     keywordInput.addEventListener("input", updateCoverage);
+    Object.keys(fontInputs).forEach(function (key) {
+        fontInputs[key].addEventListener("input", function () {
+            typography[key] = Number(fontInputs[key].value);
+            syncTypographyControls();
+        });
+    });
 
     document.getElementById("reset-defaults").addEventListener("click", function () {
         resetSelections();
@@ -420,21 +652,12 @@
     });
 
     document.getElementById("download-pdf").addEventListener("click", function () {
-        var originalTitle = document.title;
-        var restored = false;
-        var restoreTitle = function () {
-            if (restored) return;
-            restored = true;
-            document.title = originalTitle;
-            window.removeEventListener("afterprint", restoreTitle);
-        };
-        document.title = "Quentin_Adolphe";
-        window.addEventListener("afterprint", restoreTitle);
-        showToast("Choose Save as PDF in the print dialog.");
-        setTimeout(function () {
-            window.print();
-            setTimeout(restoreTitle, 1200);
-        }, 80);
+        try {
+            download(buildPdf().output("blob"), "Quentin_Adolphe.pdf", "application/pdf");
+            showToast("PDF downloaded by your browser.");
+        } catch (error) {
+            showToast("PDF download could not start. Check your connection and try again.");
+        }
     });
 
     document.getElementById("download-text").addEventListener("click", function () {
@@ -445,6 +668,8 @@
     window.ResumeGeneratorUtils = {
         buildPlainText: buildPlainText,
         buildLatex: buildLatex,
+        buildPdf: buildPdf,
+        getTypography: function () { return Object.assign({}, typography); },
         getSelectedIds: function () { return Array.from(selected); }
     };
 

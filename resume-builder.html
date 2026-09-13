@@ -11,7 +11,7 @@
             document.documentElement.classList.add("resume-builder-dev");
         }
     </script>
-    <link rel="stylesheet" href="assets/css/resume-builder.css?v=8">
+    <link rel="stylesheet" href="assets/css/resume-builder.css?v=10">
     <link rel="icon" type="image/ico" href="images/Icon.ico">
 </head>
 
@@ -56,6 +56,31 @@
                 <div id="keyword-coverage" class="keyword-coverage" aria-live="polite"></div>
             </section>
 
+            <section class="focus-panel typography-panel" aria-labelledby="typography-heading">
+                <div class="control-heading">
+                    <div>
+                        <p class="step-label">Page fit</p>
+                        <h2 id="typography-heading">Resume font sizes</h2>
+                    </div>
+                </div>
+                <div class="font-control">
+                    <label for="font-name">Name</label>
+                    <input id="font-name" type="number" min="11" max="17" step="0.5" value="13">
+                    <span>pt</span>
+                </div>
+                <div class="font-control">
+                    <label for="font-section">Section headers</label>
+                    <input id="font-section" type="number" min="10" max="14" step="0.5" value="11">
+                    <span>pt</span>
+                </div>
+                <div class="font-control">
+                    <label for="font-content">Content</label>
+                    <input id="font-content" type="number" min="9" max="12" step="0.25" value="10">
+                    <span>pt</span>
+                </div>
+                <p class="field-help">Font choices apply to the preview, PDF, and LaTeX downloads.</p>
+            </section>
+
             <div id="selection-controls"></div>
 
             <div class="panel-footer">
@@ -77,7 +102,7 @@
                 </div>
             </div>
 
-            <p class="export-note">PDF opens the system print dialog; choose Save as PDF. LaTeX is tuned for pdfLaTeX in Overleaf.</p>
+            <p class="export-note">Downloads are created in your browser. LaTeX is tuned for pdfLaTeX in Overleaf.</p>
 
             <article id="resume-preview" class="resume-page" aria-label="Resume preview"></article>
         </section>
@@ -89,8 +114,9 @@
         <p class="noscript-message">This generator needs JavaScript to build and export a resume.</p>
     </noscript>
 
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@4.2.1/dist/jspdf.umd.min.js"></script>
     <script src="assets/js/resume-data.js?v=10"></script>
-    <script src="assets/js/resume-generator.js?v=8"></script>
+    <script src="assets/js/resume-generator.js?v=11"></script>
 </body>
 
 </html>

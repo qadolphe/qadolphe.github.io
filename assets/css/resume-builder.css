@@ -201,6 +201,51 @@ textarea:focus {
     font-size: 0.74rem;
 }
 
+.typography-panel {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.typography-panel .control-heading {
+    margin-bottom: 0.1rem;
+}
+
+.font-control {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 4.5rem auto;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.font-control label {
+    font-size: 0.78rem;
+    font-weight: 750;
+}
+
+.font-control input {
+    width: 100%;
+    padding: 0.35rem 0.4rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.font-control input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(36, 89, 211, 0.12);
+}
+
+.font-control span {
+    color: var(--muted);
+    font-size: 0.74rem;
+}
+
+.typography-panel .field-help {
+    margin-top: 0;
+}
+
 .keyword-coverage {
     margin-top: 0.75rem;
     font-size: 0.77rem;
@@ -371,6 +416,9 @@ textarea:focus {
 }
 
 .resume-page {
+    --resume-name-size: 13pt;
+    --resume-section-size: 11pt;
+    --resume-content-size: 10pt;
     width: 100%;
     max-width: 8.5in;
     min-height: 11in;
@@ -380,13 +428,13 @@ textarea:focus {
     background: #fff;
     box-shadow: 0 18px 60px rgba(31, 45, 70, 0.12);
     font-family: "Times New Roman", Times, serif;
-    font-size: 10pt;
+    font-size: var(--resume-content-size);
     line-height: 1.24;
 }
 
 .resume-page h1 {
     margin: 0;
-    font-size: 13pt;
+    font-size: var(--resume-name-size);
     line-height: 1.08;
     text-align: center;
 }
@@ -398,11 +446,11 @@ textarea:focus {
 }
 
 .resume-contact {
-    font-size: 10pt;
+    font-size: var(--resume-content-size);
 }
 
 .resume-target {
-    font-size: 10pt;
+    font-size: var(--resume-content-size);
     font-weight: 700;
 }
 
@@ -410,7 +458,7 @@ textarea:focus {
     margin: 0.5rem 0 0.22rem;
     padding-bottom: 0.12rem;
     border-bottom: 1px solid #333;
-    font-size: 11pt;
+    font-size: var(--resume-section-size);
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
@@ -563,7 +611,6 @@ textarea:focus {
     .resume-page {
         min-height: auto;
         padding: 0.45in 0.34in;
-        font-size: 9.5pt;
     }
 
 }
