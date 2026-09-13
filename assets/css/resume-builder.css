@@ -418,7 +418,7 @@ textarea:focus {
 .resume-page {
     --resume-name-size: 13pt;
     --resume-section-size: 11pt;
-    --resume-content-size: 10pt;
+    --resume-content-size: 10.5pt;
     width: 100%;
     max-width: 8.5in;
     min-height: 11in;

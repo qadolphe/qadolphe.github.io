@@ -303,6 +303,7 @@
     function buildLatex() {
         var profile = data.profile;
         var targetTitle = targetTitleInput.value.trim();
+        var typography = getTypography();
         var bodyLeading = (typography.content * 1.24).toFixed(2);
         var sectionLeading = (typography.section * 1.09).toFixed(2);
         var nameLeading = (typography.name * 1.08).toFixed(2);
@@ -384,6 +385,7 @@
             putOnlyUsedFonts: true
         });
         var profile = data.profile;
+        var typography = getTypography();
         var pageWidth = doc.internal.pageSize.getWidth();
         var pageHeight = doc.internal.pageSize.getHeight();
         var marginX = 37.44;
@@ -414,18 +416,6 @@
         function wrappedLines(text, width, style, size) {
             setFont(style, size);
             return doc.splitTextToSize(pdfSafe(text), width);
-        }
-
-        function drawWrapped(text, x, width, style, size, leading) {
-            var fontSize = size || bodySize;
-            var lineHeight = leading || (fontSize * 1.24);
-            var lines = wrappedLines(text, width, style, fontSize);
-            ensureSpace(lines.length * lineHeight);
-            setFont(style, fontSize);
-            lines.forEach(function (line) {
-                doc.text(line, x, y + fontSize);
-                y += lineHeight;
-            });
         }
 
         function drawSection(title) {
@@ -579,7 +569,7 @@
 
     function updateAll() {
         previewRoot.innerHTML = buildPreviewHtml();
-        syncTypographyControls();
+        applyTypography();
         var total = selected.size + (includeSkills ? 1 : 0);
         countRoot.textContent = total + (total === 1 ? " item selected" : " items selected");
         updateCoverage();
@@ -598,10 +588,13 @@
         var link = document.createElement("a");
         link.href = url;
         link.download = filename;
+        link.hidden = true;
         document.body.appendChild(link);
         link.click();
-        link.remove();
-        setTimeout(function () { URL.revokeObjectURL(url); }, 500);
+        setTimeout(function () {
+            link.remove();
+            URL.revokeObjectURL(url);
+        }, 60000);
     }
 
     controlsRoot.addEventListener("change", function (event) {
@@ -632,8 +625,7 @@
     keywordInput.addEventListener("input", updateCoverage);
     Object.keys(fontInputs).forEach(function (key) {
         fontInputs[key].addEventListener("input", function () {
-            typography[key] = Number(fontInputs[key].value);
-            syncTypographyControls();
+            applyTypography();
         });
     });
 
@@ -647,7 +639,7 @@
     });
 
     document.getElementById("download-tex").addEventListener("click", function () {
-        download(buildLatex(), "Quentin_Adolphe.tex", "application/x-tex;charset=utf-8");
+        download(buildLatex(), "Quentin_Adolphe.tex", "text/plain;charset=utf-8");
         showToast("LaTeX source downloaded. Compile it with pdfLaTeX or upload it to Overleaf.");
     });
 
@@ -669,7 +661,7 @@
         buildPlainText: buildPlainText,
         buildLatex: buildLatex,
         buildPdf: buildPdf,
-        getTypography: function () { return Object.assign({}, typography); },
+        getTypography: getTypography,
         getSelectedIds: function () { return Array.from(selected); }
     };
 
