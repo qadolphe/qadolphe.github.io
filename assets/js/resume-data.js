@@ -77,8 +77,8 @@
                 location: "",
                 skills: ["Computer Vision", "Teaching", "Python"],
                 bullets: [
-                    "Helped students work through challenging labs in perception algorithms, robot kinematics, and control systems.",
-                    "Reviewed and debugged assignments for 20 students, giving practical feedback on code and problem-solving approaches."
+                    "Helped students work through labs in perception algorithms, robot kinematics, and control systems.",
+                    "Reviewed and debugged assignments for 20+ students, giving feedback on code and problem-solving approaches."
                 ],
                 defaultSelected: true
             },
