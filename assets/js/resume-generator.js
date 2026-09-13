@@ -364,190 +364,6 @@
         return parts.filter(Boolean).join("\n\n") + "\n";
     }
 
-    function pdfSafe(value) {
-        return String(value || "")
-            .replace(/[–—]/g, "-")
-            .replace(/[‘’]/g, "'")
-            .replace(/[“”]/g, '"');
-    }
-
-    function buildPdf() {
-        if (!window.jspdf || !window.jspdf.jsPDF) {
-            throw new Error("PDF library unavailable");
-        }
-
-        var jsPDF = window.jspdf.jsPDF;
-        var doc = new jsPDF({
-            orientation: "portrait",
-            unit: "pt",
-            format: "letter",
-            compress: true,
-            putOnlyUsedFonts: true
-        });
-        var profile = data.profile;
-        var typography = getTypography();
-        var pageWidth = doc.internal.pageSize.getWidth();
-        var pageHeight = doc.internal.pageSize.getHeight();
-        var marginX = 37.44;
-        var marginTop = 36;
-        var marginBottom = 36;
-        var contentWidth = pageWidth - (marginX * 2);
-        var bodySize = typography.content;
-        var bodyLeading = bodySize * 1.24;
-        var y = marginTop;
-
-        doc.setProperties({
-            title: "Quentin Adolphe Resume",
-            author: "Quentin Adolphe",
-            subject: targetTitleInput.value.trim() || "Resume"
-        });
-
-        function setFont(style, size) {
-            doc.setFont("times", style || "normal");
-            doc.setFontSize(size || bodySize);
-        }
-
-        function ensureSpace(height) {
-            if (y + height <= pageHeight - marginBottom) return;
-            doc.addPage();
-            y = marginTop;
-        }
-
-        function wrappedLines(text, width, style, size) {
-            setFont(style, size);
-            return doc.splitTextToSize(pdfSafe(text), width);
-        }
-
-        function drawSection(title) {
-            var size = typography.section;
-            var leading = size * 1.09;
-            y += 6;
-            ensureSpace(leading + 5);
-            setFont("bold", size);
-            doc.text(pdfSafe(title.toUpperCase()), marginX, y + size);
-            y += leading;
-            doc.setDrawColor(51);
-            doc.setLineWidth(0.75);
-            doc.line(marginX, y + 1.5, pageWidth - marginX, y + 1.5);
-            y += 4;
-        }
-
-        function drawHeadingRow(left, right, style) {
-            var rightText = pdfSafe(right || "");
-            setFont("normal", bodySize);
-            var rightWidth = rightText ? doc.getTextWidth(rightText) : 0;
-            var gap = rightText ? 12 : 0;
-            var leftWidth = contentWidth - rightWidth - gap;
-            var lines = wrappedLines(left, leftWidth, style || "normal", bodySize);
-            ensureSpace(lines.length * bodyLeading);
-            lines.forEach(function (line, index) {
-                setFont(style || "normal", bodySize);
-                doc.text(line, marginX, y + bodySize);
-                if (index === 0 && rightText) {
-                    setFont("normal", bodySize);
-                    doc.text(rightText, pageWidth - marginX, y + bodySize, { align: "right" });
-                }
-                y += bodyLeading;
-            });
-        }
-
-        function drawCompany(organization, location) {
-            ensureSpace(bodyLeading);
-            setFont("bold", bodySize);
-            doc.text(pdfSafe(organization), marginX, y + bodySize);
-            if (location) {
-                doc.text(pdfSafe(location), pageWidth - marginX, y + bodySize, { align: "right" });
-            }
-            y += bodyLeading;
-        }
-
-        function drawBullets(bullets) {
-            bullets.forEach(function (bullet) {
-                var indent = 9;
-                var lines = wrappedLines(bullet, contentWidth - indent, "normal", bodySize);
-                ensureSpace(lines.length * bodyLeading);
-                lines.forEach(function (line, index) {
-                    setFont("normal", bodySize);
-                    if (index === 0) doc.text("-", marginX, y + bodySize);
-                    doc.text(line, marginX + indent, y + bodySize);
-                    y += bodyLeading;
-                });
-            });
-        }
-
-        function drawLabeledLine(label, value, separator) {
-            var labelText = pdfSafe(label + (separator || ""));
-            var valueText = pdfSafe(value);
-            setFont("bold", bodySize);
-            var labelWidth = doc.getTextWidth(labelText);
-            var valueLines = wrappedLines(valueText, contentWidth - labelWidth, "normal", bodySize);
-            ensureSpace(valueLines.length * bodyLeading);
-            valueLines.forEach(function (line, index) {
-                if (index === 0) {
-                    setFont("bold", bodySize);
-                    doc.text(labelText, marginX, y + bodySize);
-                }
-                setFont("normal", bodySize);
-                doc.text(line, marginX + labelWidth, y + bodySize);
-                y += bodyLeading;
-            });
-        }
-
-        setFont("bold", typography.name);
-        doc.text(pdfSafe(profile.name), pageWidth / 2, y + typography.name, { align: "center" });
-        y += typography.name * 1.08;
-        var contact = [profile.location, profile.email, compactUrl(profile.website), compactUrl(profile.github)]
-            .filter(Boolean).join(" | ");
-        setFont("normal", bodySize);
-        doc.text(pdfSafe(contact), pageWidth / 2, y + bodySize, { align: "center" });
-        y += bodyLeading;
-        if (targetTitleInput.value.trim()) {
-            setFont("bold", bodySize);
-            doc.text("Target Role: " + pdfSafe(targetTitleInput.value.trim()), pageWidth / 2, y + bodySize, { align: "center" });
-            y += bodyLeading;
-        }
-
-        var education = selectedItems("education");
-        if (education.length) {
-            drawSection("Education");
-            education.forEach(function (item) {
-                y += 2;
-                drawCompany(item.institution, "");
-                drawHeadingRow(item.degree + (item.details ? " | " + item.details : ""), item.date, "italic");
-            });
-        }
-
-        var experience = selectedItems("experience");
-        if (experience.length) {
-            drawSection("Professional Experience");
-            experience.forEach(function (item) {
-                y += 2;
-                drawCompany(item.organization, item.location);
-                drawHeadingRow(item.title, item.date, "italic");
-                drawBullets(item.bullets);
-            });
-        }
-
-        var projects = selectedItems("projects");
-        if (projects.length) {
-            drawSection("Projects");
-            projects.forEach(function (item) {
-                y += 2;
-                drawLabeledLine(item.name, " | " + item.technologies.join(", "));
-                drawBullets(item.bullets);
-            });
-        }
-
-        if (includeSkills) {
-            drawSection("Skills");
-            data.skillGroups.forEach(function (group) {
-                drawLabeledLine(group.label, group.items.join(", "), ": ");
-            });
-        }
-
-        return doc;
-    }
-
     function updateCoverage() {
         var keywords = keywordInput.value.split(/[,\n;]/).map(function (keyword) {
             return keyword.trim();
@@ -644,12 +460,18 @@
     });
 
     document.getElementById("download-pdf").addEventListener("click", function () {
-        try {
-            download(buildPdf().output("blob"), "Quentin_Adolphe.pdf", "application/pdf");
-            showToast("PDF downloaded by your browser.");
-        } catch (error) {
-            showToast("PDF download could not start. Check your connection and try again.");
-        }
+        var originalTitle = document.title;
+        var restoreTitle = function () {
+            document.title = originalTitle;
+            window.removeEventListener("afterprint", restoreTitle);
+        };
+        document.title = "Quentin_Adolphe";
+        window.addEventListener("afterprint", restoreTitle);
+        showToast("Choose Save as PDF in the print dialog.");
+        setTimeout(function () {
+            window.print();
+            setTimeout(restoreTitle, 1200);
+        }, 80);
     });
 
     document.getElementById("download-text").addEventListener("click", function () {
@@ -660,7 +482,6 @@
     window.ResumeGeneratorUtils = {
         buildPlainText: buildPlainText,
         buildLatex: buildLatex,
-        buildPdf: buildPdf,
         getTypography: getTypography,
         getSelectedIds: function () { return Array.from(selected); }
     };
