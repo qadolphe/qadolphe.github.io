@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quentin Adolphe | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/modern.css?v=2">
+    <link rel="stylesheet" href="assets/css/modern.css?v=3">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <link rel="icon" type="image/ico" href="images/Icon.ico">
 </head>
@@ -20,7 +20,9 @@
                     <li><a href="#professional">Experience</a></li>
                     <li><a href="#school">School Work</a></li>
                     <li><a href="#side-projects">Side Projects</a></li>
-                    <li><a href="resume/Quentin_Adolphe.pdf" target="_blank" class="btn btn-outline"
+                    <li><a href="resume/Quentin_Adolphe.pdf" target="_blank" class="btn btn-outline resume-hold-button"
+                            id="resume-button" aria-describedby="resume-hold-hint"
+                            title="Click for the current PDF, or hold for 5 seconds to build a tailored resume"
                             style="font-size: 0.9rem; padding: 0.5rem 1.25rem;">Resume</a></li>
                 </ul>
             </nav>
@@ -55,11 +57,11 @@
 
                 <div class="timeline" id="experience-timeline">
                     <!-- General Motors -->
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-resume-ids="role-gm-robotics role-gm-dimensional role-gm-cfd role-gm-validation">
                         <h3 class="timeline-title">General Motors</h3>
                         <div class="timeline-date">Summer 2024 - Present</div>
 
-                        <details class="job-accordion">
+                        <details class="job-accordion" data-resume-id="role-gm-robotics">
                             <summary class="job-summary">Robotics AI/ML Software Engineer</summary>
                             <div class="job-content">
                                 <div
@@ -72,7 +74,7 @@
                             </div>
                         </details>
 
-                        <details class="job-accordion">
+                        <details class="job-accordion" data-resume-id="role-gm-dimensional">
                             <summary class="job-summary">Dimensional Systems Engineer</summary>
                             <div class="job-content">
                                 <div
@@ -88,7 +90,7 @@
                             </div>
                         </details>
 
-                        <details class="job-accordion">
+                        <details class="job-accordion" data-resume-id="role-gm-cfd">
                             <summary class="job-summary">CFD Automation Engineer</summary>
                             <div class="job-content">
                                 <div
@@ -108,7 +110,7 @@
                             </div>
                         </details>
 
-                        <details class="job-accordion">
+                        <details class="job-accordion" data-resume-id="role-gm-validation">
                             <summary class="job-summary">Software Validation Engineer</summary>
                             <div class="job-content">
                                 <div
@@ -125,7 +127,7 @@
                     </div>
 
                     <!-- Swarthmore College - Teaching Assistant -->
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-resume-id="role-swarthmore-ta">
                         <h3 class="timeline-title">Teaching Assistant</h3>
                         <div class="timeline-date">Jan 2024 - May 2025 · 1 yr 5 mos</div>
                         <div class="timeline-subtitle">Swarthmore College · Part-time</div>
@@ -135,7 +137,7 @@
                     </div>
 
                     <!-- USAA - Software Engineering Intern -->
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-resume-id="role-usaa">
                         <h3 class="timeline-title">Software Engineering Intern</h3>
                         <div class="timeline-date">Summer 2023</div>
                         <div class="timeline-subtitle">United Services Automobile Association (USAA)</div>
@@ -147,7 +149,7 @@
                     </div>
 
                     <!-- Forward Edge AI - Economic Research Investigator (Hidden initially) -->
-                    <div class="timeline-item hidden-experience" style="display: none;">
+                    <div class="timeline-item hidden-experience" data-resume-id="role-forward-edge" style="display: none;">
                         <h3 class="timeline-title">Economic Research Investigator</h3>
                         <div class="timeline-date">Summer 2022</div>
                         <div class="timeline-subtitle">Forward Edge-AI</div>
@@ -179,7 +181,7 @@
                 <div class="project-grid">
 
                     <!-- Turtlebot Maze -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-turtlebot">
                         <iframe style="width: 100%; aspect-ratio: 16/9;"
                             src="https://www.youtube.com/embed/npDTtWgBwEc?si=g4sc4EnxOlWjQ6fT"
                             title="YouTube video player" frameborder="0"
@@ -200,7 +202,7 @@
                     </div>
 
                     <!-- Running Analysis -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-running-analysis">
                         <img src="images/NoahLyles.png" alt="Running Analysis" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">ML • Computer Vision • Kotlin</div>
@@ -214,7 +216,7 @@
                     </div>
 
                     <!-- 3D Triangulation -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-triangulation">
                         <img src="images/stereovision.png" alt="Stereo Vision" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Computer Vision • Python</div>
@@ -229,7 +231,7 @@
                     </div>
 
                     <!-- Embedded Systems: Heart Rate -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-heart-rate">
                         <img src="images/HeartRate.png" alt="Heart Rate Monitor" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Embedded • C++ • Matlab</div>
@@ -242,7 +244,7 @@
                     </div>
 
                     <!-- Embedded Systems: Traffic Light -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-traffic-light">
                         <img src="images/trafficLight.jpeg" alt="Traffic Light" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Embedded • C++</div>
@@ -256,7 +258,7 @@
                     </div>
 
                     <!-- Cubic Spline -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-cubic-spline">
                         <img src="images/CubicSplineExample.png" alt="Cubic Spline" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Numerical Methods • Python</div>
@@ -269,7 +271,7 @@
                     </div>
 
                     <!-- Sun/Earth/Moon -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-orbital-simulation">
                         <img src="images/Sun-Earth-Moon-Simulation.gif" alt="Simulation" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Numerical Methods • Python</div>
@@ -284,7 +286,7 @@
                     </div>
 
                     <!-- Pseudorandom -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-chaos-random">
                         <img src="images/Pendulums.png" alt="Chaos" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Security • Numerical Methods</div>
@@ -300,7 +302,7 @@
                     </div>
 
                     <!-- Hybrid Images -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-hybrid-images">
                         <img src="images/arctic.jpg" alt="Hybrid Images" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Computer Vision • Python</div>
@@ -313,7 +315,7 @@
                     </div>
 
                     <!-- Tennis Tracking -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-tennis-tracking">
                         <img src="images/tennis.jpg" alt="Tennis" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Computer Vision • Python</div>
@@ -339,7 +341,7 @@
 
                 <div class="project-grid">
                     <!-- Swatbloc -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-swatbloc">
                         <div
                             style="width: 100%; height: 200px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: bold;">
                             Swatbloc Image
@@ -358,7 +360,7 @@
                     </div>
 
                     <!-- Lattice Boltzmann -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-lattice-boltzmann">
                         <img src="images/shortened_output.gif" alt="Fluid Simulation" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Machine Learning • Numerical Methods</div>
@@ -374,7 +376,7 @@
                     </div>
 
                     <!-- Stock Trading -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-stock-trading">
                         <img src="images/StockTrades.png" alt="Stock Trading" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Finance • AI • Python</div>
@@ -389,7 +391,7 @@
                     </div>
 
                     <!-- Ride Share -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-college-rideshare">
                         <img src="images/CollegeRideShare.png" alt="Ride Share App" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">iOS • Swift • Business</div>
@@ -403,7 +405,7 @@
                     </div>
 
                     <!-- Game of Life -->
-                    <div class="project-card">
+                    <div class="project-card" data-resume-id="project-game-of-life">
                         <img src="images/gol.gif" alt="Game of Life" class="project-image">
                         <div class="project-content">
                             <div class="project-tags">Game Dev • C# • Unity</div>
@@ -431,12 +433,15 @@
                             class="fas fa-envelope"></i>
                         <span>Email</span></a>
                 </div>
+                <p id="resume-hold-hint" class="sr-only">Click Resume for the current PDF. Press and hold it for five seconds to open the resume generator.</p>
                 <p style="margin-top: 2rem; color: #6b7280;">&copy; Quentin Adolphe. All rights reserved.</p>
             </div>
         </footer>
 
     </main>
 
+    <script src="assets/js/resume-data.js?v=3"></script>
+    <script src="assets/js/resume-hold.js?v=1"></script>
     <script>
         document.getElementById('toggle-experience').addEventListener('click', function () {
             var hiddenItems = document.querySelectorAll('.hidden-experience');

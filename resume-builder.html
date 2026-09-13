@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build a tailored, ATS-friendly resume from Quentin Adolphe's portfolio.">
+    <title>Resume Generator | Quentin Adolphe</title>
+    <link rel="stylesheet" href="assets/css/resume-builder.css?v=5">
+    <link rel="icon" type="image/ico" href="images/Icon.ico">
+</head>
+
+<body>
+    <header class="builder-header">
+        <a class="builder-brand" href="index.html" aria-label="Return to Quentin Adolphe's portfolio">
+            <span aria-hidden="true">&larr;</span> Quentin Adolphe
+        </a>
+        <div class="builder-status"><span aria-hidden="true"></span> Parser-first format</div>
+    </header>
+
+    <main class="builder-layout">
+        <aside class="builder-panel" aria-label="Resume controls">
+            <div class="builder-intro">
+                <p class="eyebrow">Resume generator</p>
+                <h1>Build for the parser.</h1>
+                <p>Choose the evidence that fits the role. The output uses standard headings, a single column, plain
+                    text links, and no icons, tables, or text boxes.</p>
+            </div>
+
+            <section class="focus-panel" aria-labelledby="focus-heading">
+                <div class="control-heading">
+                    <div>
+                        <p class="step-label">Optional targeting</p>
+                        <h2 id="focus-heading">Role and keywords</h2>
+                    </div>
+                </div>
+                <label class="field-label" for="target-title">Target role</label>
+                <input id="target-title" type="text" placeholder="e.g. Robotics Software Engineer" autocomplete="off">
+                <label class="field-label" for="target-keywords">Job-description keywords</label>
+                <textarea id="target-keywords" rows="3" placeholder="Paste comma-separated skills to check coverage"></textarea>
+                <p class="field-help">Keywords measure coverage only; they are never inserted as unsupported claims.</p>
+                <div id="keyword-coverage" class="keyword-coverage" aria-live="polite"></div>
+            </section>
+
+            <div id="selection-controls"></div>
+
+            <div class="panel-footer">
+                <button type="button" class="text-button" id="reset-defaults">Reset to current resume</button>
+                <p id="selection-count" aria-live="polite"></p>
+            </div>
+        </aside>
+
+        <section class="preview-panel" aria-label="Generated resume preview">
+            <div class="preview-toolbar">
+                <div>
+                    <p class="step-label">Live output</p>
+                    <h2>ATS preview</h2>
+                </div>
+                <div class="export-actions">
+                    <button type="button" class="secondary-button" id="copy-docs">Copy + open Google Docs</button>
+                    <button type="button" class="secondary-button" id="download-doc">Download .doc</button>
+                    <button type="button" class="primary-button" id="download-tex">Download LaTeX</button>
+                    <button type="button" class="icon-button" id="download-text" title="Download plain text" aria-label="Download plain text">TXT</button>
+                </div>
+            </div>
+
+            <p class="export-note">Google Docs opens a blank document after copying the formatted resume. Paste once to
+                preserve the parser-safe layout.</p>
+
+            <article id="resume-preview" class="resume-page" aria-label="Resume preview"></article>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <noscript>
+        <p class="noscript-message">This generator needs JavaScript to build and export a resume.</p>
+    </noscript>
+
+    <script src="assets/js/resume-data.js?v=5"></script>
+    <script src="assets/js/resume-generator.js?v=5"></script>
+</body>
+
+</html>
