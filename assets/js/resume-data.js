@@ -35,7 +35,7 @@
                 id: "role-gm-robotics",
                 organization: "General Motors",
                 title: "Robotics AI/ML Software Engineer",
-                date: "2026 - Present",
+                date: "Sep 2026 - Present",
                 location: "",
                 skills: ["Robotics", "Motion Planning", "Scene Perception", "Autonomous Systems"],
                 bullets: [
@@ -47,7 +47,7 @@
                 id: "role-gm-dimensional",
                 organization: "General Motors",
                 title: "Dimensional Systems Engineer",
-                date: "2026",
+                date: "Mar 2026 - Sep 2026",
                 location: "",
                 skills: ["Python", "Databricks", "ETL", "Excel", "VBA", "Simulation"],
                 bullets: [
@@ -60,7 +60,7 @@
                 id: "role-gm-cfd",
                 organization: "General Motors",
                 title: "CFD Automation Engineer",
-                date: "2025 - 2026",
+                date: "Jul 2025 - Mar 2026",
                 location: "",
                 skills: ["Python", "React", "Electron", "Flask", "TypeScript", "HPC", "Pandas", "NumPy"],
                 bullets: [
@@ -70,10 +70,23 @@
                 defaultSelected: true
             },
             {
+                id: "role-swarthmore-ta",
+                organization: "Swarthmore College",
+                title: "Teaching Assistant - Computer Vision & Mobile Robotics",
+                date: "Jan 2024 - May 2025",
+                location: "",
+                skills: ["Computer Vision", "Teaching", "Python"],
+                bullets: [
+                    "Helped students work through challenging labs in perception algorithms, robot kinematics, and control systems.",
+                    "Reviewed and debugged assignments for 20 students, giving practical feedback on code and problem-solving approaches."
+                ],
+                defaultSelected: true
+            },
+            {
                 id: "role-gm-validation",
                 organization: "General Motors",
                 title: "Software Validation Engineer Intern",
-                date: "Summer 2024",
+                date: "May 2024 - Aug 2024",
                 location: "",
                 skills: ["Software Validation", "ECU", "Automation", "Software-Defined Vehicles"],
                 bullets: [
@@ -83,22 +96,10 @@
                 defaultSelected: true
             },
             {
-                id: "role-swarthmore-ta",
-                organization: "Swarthmore College",
-                title: "Computer Vision Teaching Assistant",
-                date: "January 2024 - May 2025",
-                location: "Swarthmore, PA",
-                skills: ["Computer Vision", "Teaching", "Python"],
-                bullets: [
-                    "Supported students as a teaching assistant for an undergraduate Computer Vision course."
-                ],
-                defaultSelected: false
-            },
-            {
                 id: "role-usaa",
                 organization: "USAA",
                 title: "Software Engineering Intern",
-                date: "Summer 2023",
+                date: "May 2023 - Aug 2023",
                 location: "",
                 skills: ["React", "JavaScript", "Full-Stack Development", "Database Integration"],
                 bullets: [
@@ -111,14 +112,14 @@
                 id: "role-forward-edge",
                 organization: "Forward Edge AI",
                 title: "Economic Research Investigator",
-                date: "Summer 2022",
+                date: "May 2022 - Aug 2022",
                 location: "",
                 skills: ["Research", "Cybersecurity", "Economics", "Technical Writing"],
                 bullets: [
                     "Wrote a National Science Foundation-funded economics research paper on the business operations of international scam centers and criminal organizations.",
                     "Assessed cybersecurity and operational capabilities for the NSA Protocol Free Encryption Device as part of a Cooperative Research and Development Agreement team."
                 ],
-                defaultSelected: true
+                defaultSelected: false
             }
         ],
 

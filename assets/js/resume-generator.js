@@ -308,7 +308,7 @@
             "\\setlength{\\parskip}{0pt}",
             "\\linespread{1.03}",
             "\\setlist[itemize]{leftmargin=*,topsep=1pt,itemsep=0pt,parsep=0pt,partopsep=0pt}",
-            "\\newcommand{\\ressection}[1]{\\vspace{5pt}{\\fontsize{11}{12}\\selectfont\\textbf{#1}}\\par\\vspace{1pt}\\hrule\\vspace{2pt}}",
+            "\\newcommand{\\ressection}[1]{\\par\\addvspace{7pt}{\\fontsize{11}{12}\\selectfont\\textbf{#1}}\\par\\nobreak\\vspace{1.5pt}\\hrule\\nobreak\\vspace{3pt}}",
             "\\pagestyle{empty}",
             "\\begin{document}",
             "\\raggedright",
@@ -415,17 +415,30 @@
     });
 
     document.getElementById("download-tex").addEventListener("click", function () {
-        download(buildLatex(), "Quentin_Adolphe_ATS_Resume.tex", "application/x-tex;charset=utf-8");
+        download(buildLatex(), "Quentin_Adolphe.tex", "application/x-tex;charset=utf-8");
         showToast("LaTeX source downloaded. Compile it with pdfLaTeX or upload it to Overleaf.");
     });
 
     document.getElementById("download-pdf").addEventListener("click", function () {
+        var originalTitle = document.title;
+        var restored = false;
+        var restoreTitle = function () {
+            if (restored) return;
+            restored = true;
+            document.title = originalTitle;
+            window.removeEventListener("afterprint", restoreTitle);
+        };
+        document.title = "Quentin_Adolphe";
+        window.addEventListener("afterprint", restoreTitle);
         showToast("Choose Save as PDF in the print dialog.");
-        setTimeout(function () { window.print(); }, 80);
+        setTimeout(function () {
+            window.print();
+            setTimeout(restoreTitle, 1200);
+        }, 80);
     });
 
     document.getElementById("download-text").addEventListener("click", function () {
-        download(buildPlainText(), "Quentin_Adolphe_ATS_Resume.txt", "text/plain;charset=utf-8");
+        download(buildPlainText(), "Quentin_Adolphe.txt", "text/plain;charset=utf-8");
         showToast("Plain-text parser check downloaded.");
     });
 
