@@ -261,9 +261,11 @@
         return lines.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
     }
 
-    function latexSection(title, content) {
+    function latexSection(title, content, spacing) {
         if (!content.length) return "";
-        return "\\ressection{" + title + "}\n" + content.join("\n\n") + "\n";
+        var gap = typeof spacing === "number" ? spacing : 3;
+        return "\\ressection{" + title + "}\n" +
+            content.join("\n\\par\\vspace{" + gap + "pt}\n") + "\\par\n";
     }
 
     function latexBullets(bullets) {
@@ -294,7 +296,7 @@
 
         var parts = [
             "\\documentclass[10pt,letterpaper]{article}",
-            "\\usepackage[margin=0.55in]{geometry}",
+            "\\usepackage[margin=0.52in]{geometry}",
             "\\usepackage[T1]{fontenc}",
             "\\usepackage[utf8]{inputenc}",
             "\\usepackage{newtxtext}",
@@ -303,43 +305,32 @@
             "\\input{glyphtounicode}",
             "\\pdfgentounicode=1",
             "\\setlength{\\parindent}{0pt}",
-            "\\setlength{\\parskip}{2pt}",
-            "\\setlist[itemize]{leftmargin=*,topsep=1pt,itemsep=0pt,parsep=0pt}",
-            "\\newcommand{\\ressection}[1]{\\vspace{4pt}\\textbf{\\large #1}\\par\\vspace{1pt}\\hrule\\vspace{2pt}}",
+            "\\setlength{\\parskip}{0pt}",
+            "\\linespread{1.03}",
+            "\\setlist[itemize]{leftmargin=*,topsep=1pt,itemsep=0pt,parsep=0pt,partopsep=0pt}",
+            "\\newcommand{\\ressection}[1]{\\vspace{5pt}{\\fontsize{11}{12}\\selectfont\\textbf{#1}}\\par\\vspace{1pt}\\hrule\\vspace{2pt}}",
             "\\pagestyle{empty}",
             "\\begin{document}",
-            "\\begin{center}",
-            "{\\fontsize{13}{15}\\selectfont \\textbf{" + latexEscape(profile.name) + "}}\\\\",
-            latexEscape(profile.location + " | " + profile.email) + "\\\\",
-            "\\href{" + profile.website + "}{" + latexEscape(compactUrl(profile.website)) + "} \\textbar{} " +
-                "\\href{" + profile.github + "}{" + latexEscape(compactUrl(profile.github)) + "}",
-            targetTitle ? "\\textbf{Target Role: " + latexEscape(targetTitle) + "}" : "",
-            "\\end{center}",
+            "\\raggedright",
+            "{\\centering",
+            "{\\fontsize{13}{14}\\selectfont \\textbf{" + latexEscape(profile.name) + "}}\\par",
+            "\\vspace{1pt}",
+            latexEscape(profile.location) + " \\textbar{} " +
+                "\\href{mailto:" + profile.email + "}{" + latexEscape(profile.email) + "} \\textbar{} " +
+                "\\href{" + profile.website + "}{" + latexEscape(compactUrl(profile.website)) + "} \\textbar{} " +
+                "\\href{" + profile.github + "}{" + latexEscape(compactUrl(profile.github)) + "}\\par",
+            targetTitle ? "\\vspace{1pt}\\textbf{Target Role: " + latexEscape(targetTitle) + "}\\par" : "",
+            "}",
             latexSection("EDUCATION", education),
             latexSection("PROFESSIONAL EXPERIENCE", experience),
             latexSection("PROJECTS", projects),
             includeSkills ? latexSection("SKILLS", data.skillGroups.map(function (group) {
                 return "\\textbf{" + latexEscape(group.label) + ":} " + latexEscape(group.items.join(", "));
-            })) : "",
+            }), 0.5) : "",
             "\\end{document}"
         ];
 
         return parts.filter(Boolean).join("\n\n") + "\n";
-    }
-
-    function buildWordHtml() {
-        return '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Quentin Adolphe ATS Resume</title>' +
-            '<style>body{font-family:"Times New Roman",Times,serif;font-size:10pt;line-height:1.22;margin:.55in;color:#111}' +
-            'h1{text-align:center;font-size:13pt;margin:0}.resume-contact,.resume-target{text-align:center;margin:2px 0}' +
-            'h2{font-size:11pt;border-bottom:1px solid #333;margin:8px 0 3px;text-transform:uppercase}' +
-            '.resume-entry{margin:4px 0}.resume-entry-heading{display:flex;justify-content:space-between;gap:12px;font-weight:bold}' +
-            '.resume-entry-heading>span:last-child{white-space:nowrap}.resume-entry-heading>span+span{font-weight:normal;font-style:normal}' +
-            '.resume-company-line{display:flex;justify-content:space-between;font-weight:bold}.resume-role .resume-entry-heading{font-weight:normal;font-style:italic}' +
-            '.resume-degree-line{font-weight:normal}.resume-degree-name{font-style:italic}' +
-            '.resume-project-tech{font-weight:normal;font-style:normal}' +
-            '.resume-role+.resume-role{margin-top:3px}' +
-            'ul{margin:1px 0 1px 18px;padding:0}li{margin:0}.resume-skills-line,.resume-activity-details{margin:1px 0}</style></head><body>' +
-            buildPreviewHtml() + '</body></html>';
     }
 
     function updateCoverage() {
@@ -387,50 +378,6 @@
         setTimeout(function () { URL.revokeObjectURL(url); }, 500);
     }
 
-    function fallbackCopy(text) {
-        var textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
-        textarea.select();
-        var copied = document.execCommand("copy");
-        textarea.remove();
-        return copied;
-    }
-
-    async function copyForGoogleDocs() {
-        var docsWindow = window.open("https://docs.new", "_blank", "noopener");
-        var html = buildWordHtml();
-        var plain = buildPlainText();
-        var copied = false;
-
-        try {
-            if (navigator.clipboard && window.ClipboardItem) {
-                var clipboardItem = new ClipboardItem({
-                    "text/html": new Blob([html], { type: "text/html" }),
-                    "text/plain": new Blob([plain], { type: "text/plain" })
-                });
-                await navigator.clipboard.write([clipboardItem]);
-                copied = true;
-            } else if (navigator.clipboard) {
-                await navigator.clipboard.writeText(plain);
-                copied = true;
-            } else {
-                copied = fallbackCopy(plain);
-            }
-        } catch (error) {
-            copied = fallbackCopy(plain);
-        }
-
-        if (!docsWindow) {
-            showToast(copied ? "Resume copied. Allow pop-ups, open docs.new, and paste." : "Pop-up and clipboard access were blocked. Download the .doc instead.");
-        } else {
-            showToast(copied ? "Resume copied. Paste it into the new Google Doc." : "Google Docs opened, but copying was blocked. Download the .doc instead.");
-        }
-    }
-
     controlsRoot.addEventListener("change", function (event) {
         if (event.target.id === "include-skills") {
             includeSkills = event.target.checked;
@@ -472,9 +419,9 @@
         showToast("LaTeX source downloaded. Compile it with pdfLaTeX or upload it to Overleaf.");
     });
 
-    document.getElementById("download-doc").addEventListener("click", function () {
-        download(buildWordHtml(), "Quentin_Adolphe_ATS_Resume.doc", "application/msword;charset=utf-8");
-        showToast("Google Docs-compatible .doc downloaded.");
+    document.getElementById("download-pdf").addEventListener("click", function () {
+        showToast("Choose Save as PDF in the print dialog.");
+        setTimeout(function () { window.print(); }, 80);
     });
 
     document.getElementById("download-text").addEventListener("click", function () {
@@ -482,12 +429,9 @@
         showToast("Plain-text parser check downloaded.");
     });
 
-    document.getElementById("copy-docs").addEventListener("click", copyForGoogleDocs);
-
     window.ResumeGeneratorUtils = {
         buildPlainText: buildPlainText,
         buildLatex: buildLatex,
-        buildWordHtml: buildWordHtml,
         getSelectedIds: function () { return Array.from(selected); }
     };
 

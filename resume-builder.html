@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Build a tailored, ATS-friendly resume from Quentin Adolphe's portfolio.">
     <title>Resume Generator | Quentin Adolphe</title>
-    <link rel="stylesheet" href="assets/css/resume-builder.css?v=5">
+    <script>
+        if (["localhost", "127.0.0.1", "::1"].indexOf(window.location.hostname) !== -1) {
+            document.documentElement.classList.add("resume-builder-dev");
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/resume-builder.css?v=7">
     <link rel="icon" type="image/ico" href="images/Icon.ico">
 </head>
 
@@ -17,6 +22,15 @@
         </a>
         <div class="builder-status"><span aria-hidden="true"></span> Parser-first format</div>
     </header>
+
+    <section class="mobile-disabled" aria-labelledby="mobile-disabled-title">
+        <div>
+            <p class="eyebrow">Desktop tool</p>
+            <h1 id="mobile-disabled-title">Resume builder is available on larger screens.</h1>
+            <p>Open this page on a tablet or computer to tailor and export a resume.</p>
+            <a class="primary-button" href="resume/Quentin_Adolphe.pdf">Open current resume PDF</a>
+        </div>
+    </section>
 
     <main class="builder-layout">
         <aside class="builder-panel" aria-label="Resume controls">
@@ -57,15 +71,13 @@
                     <h2>ATS preview</h2>
                 </div>
                 <div class="export-actions">
-                    <button type="button" class="secondary-button" id="copy-docs">Copy + open Google Docs</button>
-                    <button type="button" class="secondary-button" id="download-doc">Download .doc</button>
+                    <button type="button" class="secondary-button" id="download-pdf">Download PDF</button>
                     <button type="button" class="primary-button" id="download-tex">Download LaTeX</button>
                     <button type="button" class="icon-button" id="download-text" title="Download plain text" aria-label="Download plain text">TXT</button>
                 </div>
             </div>
 
-            <p class="export-note">Google Docs opens a blank document after copying the formatted resume. Paste once to
-                preserve the parser-safe layout.</p>
+            <p class="export-note">PDF opens the system print dialog; choose Save as PDF. LaTeX is tuned for pdfLaTeX in Overleaf.</p>
 
             <article id="resume-preview" class="resume-page" aria-label="Resume preview"></article>
         </section>
@@ -77,8 +89,8 @@
         <p class="noscript-message">This generator needs JavaScript to build and export a resume.</p>
     </noscript>
 
-    <script src="assets/js/resume-data.js?v=5"></script>
-    <script src="assets/js/resume-generator.js?v=5"></script>
+    <script src="assets/js/resume-data.js?v=7"></script>
+    <script src="assets/js/resume-generator.js?v=7"></script>
 </body>
 
 </html>
