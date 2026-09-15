@@ -305,6 +305,10 @@
             {
                 label: "Data and Automation",
                 items: ["Data Aggregation", "Process Automation", "ETL Pipelines", "MCP Servers"]
+            },
+            {
+                label: "Certifications",
+                items: ["Six Sigma Green Belt"]
             }
         ],
 
@@ -323,7 +327,8 @@
             "Machine Learning",
             "Computer Vision",
             "Robotics",
-            "MCP Servers"
+            "MCP Servers",
+            "Six Sigma Green Belt"
         ]
     };
 }());
