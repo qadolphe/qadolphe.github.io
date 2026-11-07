@@ -37,11 +37,11 @@
                 title: "Robotics AI/ML Software Engineer",
                 date: "Sep 2026 - Present",
                 location: "",
-                skills: ["ROS2", "Motion Safety", "Robot Controls", "Point Cloud Perception", "Teleoperation"],
+                skills: ["ROS2", "Control Arbitration", "Motion Safety", "Point Cloud Perception", "Teleoperation"],
                 bullets: [
-                    "Designed the motion-safety and robot-control core of a ROS 2 cobot platform across REST, WebSocket, and gRPC.",
+                    "Designed the control-arbitration core of a ROS 2 cobot platform, granting exclusive robot ownership to one client at a time across REST, WebSocket, and gRPC, with latched HALT, confirmed-still recovery, and preemptive Stop/Cancel.",
                     "Developing single-capture 6-DoF fixture localization, cross-checking ICP point-cloud fitting against fiducial tags.",
-                    "Built the cell's operator portal with live 3D robot visualization and hold-to-jog teleoperation with a dead-man stop."
+                    "Built the cell's operator portal with a live URDF digital twin and hold-to-jog teleoperation with a dead-man stop."
                 ],
                 defaultSelected: true
             },
@@ -54,7 +54,7 @@
                 skills: ["Python", "Databricks", "ETL", "Excel", "VBA", "Simulation"],
                 bullets: [
                     "Replaced a manual Excel/VBA workflow with a Databricks ETL pipeline, processing approximately 100,000 deliverable rows across vehicle programs to improve DSE visibility and execution.",
-                    "Built a 3D variational autoencoder tool for tolerance modeling, simulation, and reporting, saving 40+ hours per cycle."
+                    "Built a 3D variation analysis tool for tolerance modeling, simulation, and reporting, saving 40+ hours per cycle."
                 ],
                 defaultSelected: true
             },
@@ -301,11 +301,11 @@
             },
             {
                 label: "AI and Robotics",
-                items: ["Machine Learning", "Computer Vision", "ROS2"]
+                items: ["Machine Learning", "Computer Vision", "ROS2", "MCP Servers"]
             },
             {
                 label: "Data and Automation",
-                items: ["Data Aggregation", "Process Automation", "ETL Pipelines", "MCP Servers"]
+                items: ["Data Aggregation", "Process Automation", "ETL Pipelines"]
             },
             {
                 label: "Certifications",
