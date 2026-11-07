@@ -37,9 +37,11 @@
                 title: "Robotics AI/ML Software Engineer",
                 date: "Sep 2026 - Present",
                 location: "",
-                skills: ["Robotics", "Motion Planning", "Scene Perception", "Autonomous Systems"],
+                skills: ["ROS2", "Motion Safety", "Robot Controls", "Point Cloud Perception", "Teleoperation"],
                 bullets: [
-                    "Integrate and test motion-planning and scene-perception software for autonomous systems."
+                    "Designed the motion-safety and robot-control core of a ROS 2 cobot platform across REST, WebSocket, and gRPC.",
+                    "Developing single-capture 6-DoF fixture localization, cross-checking ICP point-cloud fitting against fiducial tags.",
+                    "Built the cell's operator portal with live 3D robot visualization and hold-to-jog teleoperation with a dead-man stop."
                 ],
                 defaultSelected: true
             },
@@ -52,7 +54,7 @@
                 skills: ["Python", "Databricks", "ETL", "Excel", "VBA", "Simulation"],
                 bullets: [
                     "Replaced a manual Excel/VBA workflow with a Databricks ETL pipeline, processing approximately 100,000 deliverable rows across vehicle programs to improve DSE visibility and execution.",
-                    "Developed a 3D variational autoencoder tool to edit tolerance models, run simulations, analyze results, and generate reports, saving more than 40 hours per simulation and reporting cycle."
+                    "Built a 3D variational autoencoder tool for tolerance modeling, simulation, and reporting, saving 40+ hours per cycle."
                 ],
                 defaultSelected: true
             },
@@ -65,7 +67,7 @@
                 skills: ["Python", "React", "Electron", "Flask", "TypeScript", "HPC", "Pandas", "NumPy"],
                 bullets: [
                     "Built a Python analytics framework to evaluate tire parameters affecting virtual vehicle stability.",
-                    "Rebuilt a legacy Tkinter GUI as a React, Electron, and Flask application to streamline preprocessing, HPC submission, monitoring, and postprocessing work."
+                    "Rebuilt a legacy Tkinter GUI in React, Electron, and Flask, streamlining preprocessing, HPC jobs, and postprocessing."
                 ],
                 defaultSelected: true
             },
@@ -103,8 +105,7 @@
                 location: "",
                 skills: ["React", "JavaScript", "Full-Stack Development", "Database Integration"],
                 bullets: [
-                    "Contributed to full-stack development of a modernized life insurance application with database integration.",
-                    "Implemented pages with React and JavaScript and created application metadata."
+                    "Built React pages and database integration for a modernized full-stack life insurance application."
                 ],
                 defaultSelected: true
             },
@@ -300,7 +301,7 @@
             },
             {
                 label: "AI and Robotics",
-                items: ["Machine Learning", "Computer Vision", "Robotics"]
+                items: ["Machine Learning", "Computer Vision", "ROS2"]
             },
             {
                 label: "Data and Automation",
@@ -326,7 +327,7 @@
             "Databricks",
             "Machine Learning",
             "Computer Vision",
-            "Robotics",
+            "ROS2",
             "MCP Servers",
             "Six Sigma Green Belt"
         ]
